@@ -16,6 +16,31 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "megamenu_collection_link_gqhd8i": {
+          "type": "megamenu-collection-link",
+          "settings": {
+            "map_title_value": "Med Packs",
+            "collection_1": "cam-plans",
+            "collection_2": "luxury-pret",
+            "collection_3": "mid-season",
+            "collection_4": "summer",
+            "collection_5": "winter"
+          }
+        },
+        "megamenu_collection_image_ENzThx": {
+          "type": "megamenu-collection-image",
+          "settings": {
+            "map_title_value_image": "Med Packs",
+            "mega_menu_image": "shopify:\/\/shop_images\/image_672.png",
+            "redirection_for_image": "shopify:\/\/products\/a-line-pocket-shift-black"
+          }
+        }
+      },
+      "block_order": [
+        "megamenu_collection_link_gqhd8i",
+        "megamenu_collection_image_ENzThx"
+      ],
       "settings": {
         "logo_position": "middle-left",
         "menu": "main-menu",
@@ -29,8 +54,8 @@
         "enable_customer_avatar": true,
         "mobile_logo_position": "center",
         "margin_bottom": 0,
-        "padding_top": 35,
-        "padding_bottom": 35
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
   },

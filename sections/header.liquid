@@ -67,7 +67,7 @@
     {% if section.settings.logo_position == 'top-center' %}
       justify-content: center;
     {% endif %}
-    gap: 24px;
+
   }
   #main-header .header-drawer_icons,
   #main-header .menu-toggle {
@@ -314,7 +314,7 @@
         {% if section.settings.menu_type_desktop == 'dropdown' %}
           {% render 'component-nav-dropdown', nav_style: 'dropdown' %}
         {% elsif section.settings.menu_type_desktop != 'drawer' %}
-          {% render 'component-nav-megamenu' %}
+          {% render 'component-nav-megamenu', section : section %}
         {% endif %}
       </nav>
     {% endif %}
@@ -647,7 +647,64 @@
   ],
   "blocks": [
     {
-      "type": "@app"
+      "type": "megamenu-collection-link",
+      "name": "megamenu collection",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "label": "Map mega menu title",
+          "id": "map_title_value",
+          "info": "use this field to show extra collections in menu"
+        },
+        {
+          "type": "collection",
+          "id": "collection_1",
+          "label": "Collection 1"
+        },
+        {
+          "type": "collection",
+          "id": "collection_2",
+          "label": "Collection 2"
+        },
+        {
+          "type": "collection",
+          "id": "collection_3",
+          "label": "Collection 3"
+        },
+        {
+          "type": "collection",
+          "id": "collection_4",
+          "label": "Collection 4"
+        },
+        {
+          "type": "collection",
+          "id": "collection_5",
+          "label": "Collection 5"
+        }
+      ]
+    },
+    {
+      "type": "megamenu-collection-image",
+      "name": "megamenu collection image",
+      "settings" : [
+        {
+          "type": "text",
+          "label": "Map mega menu title",
+          "id": "map_title_value_image",
+          "info": "use this field to show extra image in menu"
+        },
+        {
+          "type": "image_picker",
+          "label": "Mega menu Image",
+          "id": "mega_menu_image"
+        },
+        {
+          "type": "url",
+          "id": "redirection_for_image",
+          "label": "Redirection for image"
+        }
+      ]
     }
   ]
 }
