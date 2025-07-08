@@ -11,7 +11,7 @@
     grid-template-columns: repeat(6, minmax(0, 1fr));
     margin-inline: auto;
     align-items: flex-start;
-    padding: 30px 20px;
+    padding: 30px;
   }
   #main-header .nav-megamenu .nav-megamenu_child {
     position: static;
@@ -21,38 +21,90 @@
   #main-header .nav-megamenu_heading {
     font-weight: 600;
   }
-  #main-header .nav-megamenu_child a {
-    display: block;
-    padding: 6px 0;
-    font-size: 15px;
-    line-height: 1.5;
-  }
 </style>
-<ul>
+<ul class="nav-megamenu--wrapper">
   {% for link in section.settings.menu.links %}
-    <li x-data="{ menuOpen: false }" @click.outside="menuOpen = false">
+    <li x-data="{ menuOpen: false }" class="header-toplevel-menus" @mouseenter="menuOpen = true" @mouseleave="menuOpen = false">
       {% if link.links != blank %}
-        <button
+        <buttonMed Packs
           @click="menuOpen = !menuOpen"
           :class="{ 'menu-open': menuOpen }"
           class="menu-toggle"
         >
           {{- link.title | escape -}}
           {{- 'icon-caret.svg' | inline_asset_content -}}
-        </button>
-        <div x-show="menuOpen" x-transition x-cloak class="nav-megamenu color-{{ section.settings.menu_color_scheme }} gradient">
+        </buttonMed>
+        <div x-show="menuOpen" x-transition x-cloak class="nav-megamenu color-{{ section.settings.menu_color_scheme }} gradient" >
           <ul class="page-width" role="list">
+            <li class="childlink">
+              {% assign menu_title = link.title | downcase | strip %}
+              {% for block in section.blocks %}   
+                {% assign map_title = block.settings.map_title_value | downcase | strip %}
+                {% if menu_title == map_title %}
+                  {% assign indexes = "1,2,3,4,5" | split: "," %}
+                  <div class="megamenu-collections">
+                    {% for i in indexes %}
+                      {% case i %}
+                        {% when "1" %}{% assign collection = block.settings.collection_1 %}
+                        {% when "2" %}{% assign collection = block.settings.collection_2 %}
+                        {% when "3" %}{% assign collection = block.settings.collection_3 %}
+                        {% when "4" %}{% assign collection = block.settings.collection_4 %}
+                        {% when "5" %}{% assign collection = block.settings.collection_5 %}
+                      {% endcase %}
+      
+                      {% if collection %}
+                        <div class="mega-menu-collection-item">
+                          <h4 class="block-level--title">{{ collection.title }}</h4>
+                          {% assign first_product = collection.products.first %}
+                          {% if first_product and first_product.featured_image %}
+                            <img
+                              src="{{ first_product.featured_image | img_url: '400x' }}"
+                              alt="{{ first_product.title | escape }}"
+                              loading="lazy"
+                              width="36"
+                              height="36"
+                            >
+                          {% endif %}                    
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </li>
             {%- for childlink in link.links -%}
-              <li>
-                <a
-                  href="{{ childlink.url }}"
-                  class="nav-megamenu_heading"
-                  {% if childlink.current %}
-                    aria-current="page"
+              <li class="childlink">
+                <div class="childlink-heading--wrapper">
+                  {% if childlink.url contains '/collections/' %}
+                    {% assign url_parts = childlink.url | split: '/' %}
+                    {% assign collection_handle = url_parts.last %}
+                    {% assign collection = collections[collection_handle] %}
+                  
+                    {% if collection and collection.products.size > 0 %}
+                      {% assign first_product = collection.products.first %}
+                      {% if first_product.featured_image %}
+                        <img
+                          src="{{ first_product.featured_image | img_url: '400x' }}"
+                          alt="{{ first_product.title | escape }}"
+                          loading="lazy"
+                          width="24"
+                          height="24"
+                          class="childlink-image"
+                        >
+                      {% endif %}
+                    {% endif %}
                   {% endif %}
-                >
-                  {{ childlink.title | escape }}
-                </a>
+                  
+                  <a
+                    href="{{ childlink.url }}"
+                    class="nav-megamenu_heading"
+                    {% if childlink.current %}
+                      aria-current="page"
+                    {% endif %}
+                  >
+                    {{ childlink.title }}
+                  </a>
+                </div>
                 {%- if childlink.links != blank -%}
                   <ul class="nav-megamenu_child" role="list">
                     {%- for grandchildlink in childlink.links -%}
@@ -71,6 +123,18 @@
                 {%- endif -%}
               </li>
             {%- endfor -%}
+            {% assign menu_title = link.title | downcase | strip %}
+            {% for block in section.blocks %}   
+              {% assign map_title = block.settings.map_title_value_image | downcase | strip %}
+              {% if menu_title == map_title %}
+                <img
+                  src="{{ block.settings.mega_menu_image | img_url: '400x' }}"
+                  loading="lazy"
+                  alt="Menu Image"
+                >
+              {% endif %}
+              
+            {%- endfor -%}    
           </ul>
         </div>
       {% else %}

@@ -2416,6 +2416,28 @@ input[type='checkbox'] {
   border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }
 
+.mega-menu-collection-item img{
+  max-width: 36px;
+}
+.childlink-image{
+  max-width: 24px;
+}
+.childlink-heading--wrapper{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-megamenu_child a{
+  font-weight: 400;
+  font-size: 13px;
+  padding: 8px 0;
+  text-transform: none;
+}
+.childlink-heading--wrapper .nav-megamenu_heading{
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 16px;
+}
 .header {
   display: grid;
   grid-template-areas: 'left-icons heading icons';
@@ -2423,15 +2445,60 @@ input[type='checkbox'] {
   align-items: center;
 }
 
+#main-header nav ul li.header-toplevel-menus:hover{
+  text-decoration: underline;
+  text-underline-offset: 7px;
+  color: #ed1b24;
+  text-decoration-thickness: 3px;
+}
+#main-header nav ul li:hover .icon.icon-caret path{
+  fill : #ed1b24;
+}
+.megamenu-collections .mega-menu-collection-item{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+}
+.mega-menu-collection-item .block-level--title{
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: none;
+}
+#main-header .nav-megamenu ul li.childlink{
+  border-left: 1px solid #efefef;
+  padding-left: 20px;
+}
+.nav-megamenu--wrapper > li{
+  padding: 38px 0 !important;
+}
+#main-header nav ul li.header-toplevel-menus {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 16px;
+  color: #000000;
+}
+#main-header nav ul button:hover, #main-header nav ul li a:hover{
+  color: #ed1b24;
+}
 @media screen and (max-width: 749px) {
   .header--has-app {
     grid-template-columns: auto 1fr auto;
   }
 }
+@media screen and (min-width: 1300px){
+  #main-header nav ul{
+    gap: 17px;
+  }
+} 
 
 @media screen and (min-width: 990px) {
   .header {
     grid-template-columns: 1fr auto 1fr;
+  }
+  #main-header nav ul{
+    gap: 17px;
   }
 
   .header--top-left,
@@ -3110,6 +3177,10 @@ details-disclosure > details {
   border-radius: 0;
   border-left: none;
   border-right: none;
+}
+img{
+  width: 100%;
+  height: auto;
 }
 
 /* check for flexbox gap in older Safari versions */
