@@ -1,11 +1,12 @@
 {
   "current": {
-    "logo_height": 60,
-    "type_header_font": "mono",
+    "logo": "shopify:\/\/shop_images\/eb2560cfff50a629997e4546ba811a75868c3578.png",
+    "logo_height": 30,
+    "type_header_font": "poppins_n4",
     "heading_scale": 100,
-    "type_body_font": "assistant_n4",
+    "type_body_font": "poppins_n4",
     "body_scale": 100,
-    "page_width": 1200,
+    "page_width": 1400,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
     "spacing_grid_vertical": 8,
@@ -147,27 +148,43 @@
               "menu": "footer"
             }
           },
+          "link_list_fMhEpU": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Quick links",
+              "menu": "footer"
+            }
+          },
+          "link_list_FX3jmF": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Quick links",
+              "menu": "footer"
+            }
+          },
+          "link_list_qRR4Yj": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Quick links",
+              "menu": "footer"
+            }
+          },
           "brand_information_mfQiAe": {
             "type": "brand_information",
             "settings": {
               "show_social": false
             }
-          },
-          "image_ignBDg": {
-            "type": "image",
-            "settings": {
-              "image_width": 65,
-              "alignment": "center"
-            }
           }
         },
         "block_order": [
           "link_list_tRGQXg",
-          "brand_information_mfQiAe",
-          "image_ignBDg"
+          "link_list_fMhEpU",
+          "link_list_FX3jmF",
+          "link_list_qRR4Yj",
+          "brand_information_mfQiAe"
         ],
         "settings": {
-          "color_scheme": "",
+          "color_scheme": "scheme-3",
           "newsletter_enable": true,
           "newsletter_heading": "Subscribe to our emails",
           "enable_follow_on_shop": true,
@@ -208,7 +225,7 @@
       },
       "scheme-3": {
         "settings": {
-          "background": "#242833",
+          "background": "#1f1d1e",
           "background_gradient": "",
           "text": "#ffffff",
           "button": "#ffffff",
