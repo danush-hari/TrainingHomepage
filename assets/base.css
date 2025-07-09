@@ -2517,6 +2517,19 @@ input[type='checkbox'] {
 }
 
 @media screen and (max-width: 749px) {
+  #menu-drawer.drawer-open {
+    background-color: black;
+    color : white;
+  }
+  #menu-drawer.drawer-open .menu-subdrawer{
+    background: black;
+  }
+  #menu-drawer.drawer-open svg path{
+    fill: white;
+  }
+  #menu-drawer .menu-toggle.childlink-block{
+    font-weight: 600;
+  }
   .header--has-app {
     grid-template-columns: auto 1fr auto;
   }
@@ -2531,11 +2544,15 @@ input[type='checkbox'] {
     position: absolute;
     inset: 0;
     background: white;
-    z-index: 20;
+    z-index: 10;
     padding: 1.9rem;
-    overflow-y: auto;
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
+    margin-bottom: calc(var(--header-height) + 29px);
+  }
+  .icon-close path{
+    stroke-width: 4;
   }
   .back-button{
     display: flex;
@@ -2555,11 +2572,36 @@ input[type='checkbox'] {
     margin: 0px;
     color: #ed1b24;
   }
+  #menu-drawer li.grandchild-link, .child-link--wrapper .childlink-block{
+    display: flex;
+    align-items:center;
+  }
+  #menu-drawer .grandchild-link .no-image{
+    padding-left: 42px;
+  }
   #main-header .menu-toggle svg{
     transform: rotate(-90deg);
   }
   .back-button svg path{
-    fill: #ed1b24;
+    fill: #ed1b24 !important;
+  }
+  .childlink-image-mobile{
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+  }
+  .social-icons--wrapper{
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding-left: 19px;
+    margin-top: auto;
+    z-index: 100;
+    background: inherit;
+  }
+  #menu-drawer .social-icons--wrapper .link.list-social__link{
+    width: fit-content;
+    padding: 0px;
   }
 }
 @media screen and (min-width: 1300px){

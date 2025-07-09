@@ -28,14 +28,16 @@
     }
   </style>
 {% endunless %}
-<ul class="menu-drawer_navigation" x-data="{ activeMenu: null }">
+<ul class="menu-drawer_navigation" x-data="{ activeMenu: null, activeSubMenu: null }">
   {% for link in section.settings.menu.links %}
     <li>
       {% if link.links != blank %}
+        {%- comment -%}Top Level Button{%- endcomment -%}
         <button @click="activeMenu = '{{ link.title | escape }}'" class="menu-toggle menu-drawer--toplevel">
           {{ link.title }}
           {{ 'icon-caret.svg' | inline_asset_content }}
         </button>
+        {%- comment -%}Top Level Submenu Overlay{%- endcomment -%}
         <div
           class="menu-subdrawer"
           x-show="activeMenu === '{{ link.title | escape }}'"
@@ -48,27 +50,93 @@
             </button>
             <h3 class="submenu-title">{{ link.title }}</h3>
           </div>
-          <ul>
-            {% for childlink in link.links %}
-              <li>
-                <a href="{{ childlink.url }}">{{ childlink.title }}</a>
 
-                {% if childlink.links != blank %}
-                  <ul class="pl-4">
-                    {% for grandchildlink in childlink.links %}
-                      <li>
-                        <a href="{{ grandchildlink.url }}">{{ grandchildlink.title }}</a>
-                      </li>
-                    {% endfor %}
-                  </ul>
+          <ul class="child-link--wrapper">
+            {% for childlink in link.links %}
+              <li class="childlink-block">
+                {%- comment -%} Check for collection image (applies to both with and without submenu) {%- endcomment -%}
+                {% if childlink.url contains '/collections/' %}
+                  {% assign url_parts = childlink.url | split: '/' %}
+                  {% assign collection_handle = url_parts.last %}
+                  {% assign collection = collections[collection_handle] %}
+                  {% if collection and collection.products.size > 0 %}
+                    {% assign first_product = collection.products.first %}
+                    {% if first_product.featured_image %}
+                      <img
+                        src="{{ first_product.featured_image | image_url: width: 480 }}"
+                        alt="{{ first_product.title | escape }}"
+                        loading="lazy"
+                        class="childlink-image-mobile"
+                      />
+                    {% endif %}
+                  {% endif %}
+                {% endif %}
+                {% if childlink.links == blank %}
+                  <a href="{{ childlink.url }}">{{ childlink.title }}</a>
+                {% else %}
+                  <button
+                    @click="activeSubMenu = '{{ childlink.title | escape }}'"
+                    class="menu-toggle childlink-block"
+                  >
+                    {{ childlink.title }}
+                    {{ 'icon-caret.svg' | inline_asset_content }}
+                  </button>
                 {% endif %}
               </li>
             {% endfor %}
+            
           </ul>
         </div>
+
+        {% comment %}Grandchild Submenu Overlay{% endcomment %}
+        {% for childlink in link.links %}
+          {% if childlink.links != blank %}
+            <div
+              class="menu-subdrawer"
+              x-show="activeSubMenu === '{{ childlink.title | escape }}'"
+              x-transition
+              x-cloak
+            >
+              <div class="back-button">
+                <button @click="activeSubMenu = null">
+                  {{ 'icon-caret.svg' | inline_asset_content }}
+                </button>
+                <h3 class="submenu-title">{{ childlink.title }}</h3>
+              </div>
+
+              <ul>
+                {% for grandchildlink in childlink.links %}
+                  <li class="grandchild-link">
+                    {% if grandchildlink.url contains '/collections/' %}
+                      {% assign url_parts = grandchildlink.url | split: '/' %}
+                      {% assign collection_handle = url_parts.last %}
+                      {% assign collection = collections[collection_handle] %}
+                      {% if collection and collection.products.size > 0 %}
+                        {% assign first_product = collection.products.first %}
+                        {% if first_product.featured_image %}
+                          <img
+                            src="{{ first_product.featured_image | image_url: width: 480 }}"
+                            alt="{{ first_product.title | escape }}"
+                            loading="lazy"
+                            class="childlink-image-mobile"
+                          >
+                        {% endif %}
+                      {% endif %}
+                    {% endif %}
+                    <a href="{{ grandchildlink.url }}" class="{% unless grandchildlink.url contains '/collections/' %}
+                      no-image
+                     {% endunless %}">{{ grandchildlink.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        {% endfor %}
       {% else %}
+        {%- comment -%}Top Level Link Without Children{%- endcomment -%}
         <a href="{{ link.url }}" class="menu-drawer--toplevel">{{ link.title }}</a>
       {% endif %}
     </li>
   {% endfor %}
+  
 </ul>
