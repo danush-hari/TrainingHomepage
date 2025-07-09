@@ -28,84 +28,46 @@
     }
   </style>
 {% endunless %}
-<ul
-  {% if nav_style == 'drawer' %}
-    class="menu-drawer_navigation"
-  {% endif %}
->
+<ul class="menu-drawer_navigation" x-data="{ activeMenu: null }">
   {% for link in section.settings.menu.links %}
-    <li x-data="{ menuOpen: false, activeSubMenu: null }" @click.outside="menuOpen = false; activeSubMenu = null">
+    <li>
       {% if link.links != blank %}
-        <button
-          @click="menuOpen = !menuOpen"
-          :class="{ 'menu-open': menuOpen }"
-          class="menu-toggle"
-        >
-          {{- link.title | escape -}}
-          {{- 'icon-caret.svg' | inline_asset_content -}}
+        <button @click="activeMenu = '{{ link.title | escape }}'" class="menu-toggle menu-drawer--toplevel">
+          {{ link.title }}
+          {{ 'icon-caret.svg' | inline_asset_content }}
         </button>
-        <ul
-          x-show="menuOpen"
-          class="nav-{{ nav_style }} color-{{ section.settings.menu_color_scheme }} gradient"
+        <div
+          class="menu-subdrawer"
+          x-show="activeMenu === '{{ link.title | escape }}'"
           x-transition
-          role="list"
           x-cloak
         >
-          {%- for childlink in link.links -%}
-            <li>
-              {% if childlink.links == blank %}
-                <a
-                  href="{{ childlink.url }}"
-                  class="header__menu-item"
-                  {% if childlink.current %}
-                    aria-current="page"
-                  {% endif %}
-                >
-                  {{ childlink.title | escape }}
-                </a>
-              {% else %}
-                <button
-                  @click="activeSubMenu = (activeSubMenu === '{{ childlink.title | escape }}' ? null : '{{ childlink.title | escape }}')"
-                  :class="{ 'menu-open': activeSubMenu === '{{ childlink.title | escape }}' }"
-                  class="menu-toggle"
-                >
-                  {{- childlink.title | escape -}}
-                  {{- 'icon-caret.svg' | inline_asset_content -}}
-                </button>
-                <ul
-                  x-show="activeSubMenu === '{{ childlink.title | escape }}'"
-                  class="nav-dropdown_child"
-                  x-transition
-                  role="list"
-                  x-cloak
-                >
-                  {%- for grandchildlink in childlink.links -%}
-                    <li>
-                      <a
-                        href="{{ grandchildlink.url }}"
-                        class="header__menu-item"
-                        {% if grandchildlink.current %}
-                          aria-current="page"
-                        {% endif %}
-                      >
-                        {{ grandchildlink.title | escape }}
-                      </a>
-                    </li>
-                  {%- endfor -%}
-                </ul>
-              {% endif %}
-            </li>
-          {%- endfor -%}
-        </ul>
+          <div class="back-button">
+            <button @click="activeMenu = null">
+              {{ 'icon-caret.svg' | inline_asset_content }}
+            </button>
+            <h3 class="submenu-title">{{ link.title }}</h3>
+          </div>
+          <ul>
+            {% for childlink in link.links %}
+              <li>
+                <a href="{{ childlink.url }}">{{ childlink.title }}</a>
+
+                {% if childlink.links != blank %}
+                  <ul class="pl-4">
+                    {% for grandchildlink in childlink.links %}
+                      <li>
+                        <a href="{{ grandchildlink.url }}">{{ grandchildlink.title }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
       {% else %}
-        <a
-          href="{{ link.url }}"
-          {% if link.current %}
-            aria-current="page"
-          {% endif %}
-        >
-          {{- link.title | escape -}}
-        </a>
+        <a href="{{ link.url }}" class="menu-drawer--toplevel">{{ link.title }}</a>
       {% endif %}
     </li>
   {% endfor %}

@@ -15,9 +15,7 @@
   #header-drawer #menu-drawer.drawer-open {
     transform: translateX(0);
   }
-  #main-header .header-drawer_icons svg {
-    width: 20px;
-  }
+ 
   #header-drawer .header-drawer_icons.drawer-open svg.icon-menu,
   #header-drawer .header-drawer_icons:not(.drawer-open) svg.icon-close {
     display: none;
@@ -37,14 +35,11 @@
     gap: 10px;
     font-size: 15px;
     line-height: 1.5;
+    text-transform: uppercase;
     padding: 12px 18px;
-    border-bottom: 1px solid rgb(var(--color-foreground), 0.2);
     text-decoration: none;
     width: 100%;
-    color: rgba(var(--color-foreground), 0.75);
-  }
-  #menu-drawer a:hover {
-    color: rgb(var(--color-foreground));
+    color: rgba(var(--color-foreground));
   }
   .menu-drawer_action {
     display: flex;
@@ -76,11 +71,9 @@
     border: 1px solid rgb(var(--color-foreground), 0.2);
   }
 </style>
+
 <div
-  id="header-drawer"
-  x-data="{ drawerOpen: false }"
-  @click.outside="drawerOpen = false"
->
+  id="header-drawer" x-data="{ drawerOpen: false }" @click.outside="drawerOpen = false">
   <button
     class="header-drawer_icons"
     @click="drawerOpen = !drawerOpen"
