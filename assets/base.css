@@ -2515,6 +2515,11 @@ input[type='checkbox'] {
     padding: 20px 0 !important;
   }
 }
+@media screen and (min-width: 750px) and (max-width: 1000px) {
+  #main-header nav ul{
+    gap: 1rem;
+  }
+}
 
 @media screen and (max-width: 749px) {
   #menu-drawer.drawer-open {
