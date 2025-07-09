@@ -8,7 +8,7 @@
   }
   #main-header .nav-megamenu .page-width {
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(7, minmax(0, 1fr));
     margin-inline: auto;
     align-items: flex-start;
     padding: 30px;
@@ -72,57 +72,63 @@
                 {% endif %}
               {% endfor %}
             </li>
-            {%- for childlink in link.links -%}
-              <li class="childlink">
-                <div class="childlink-heading--wrapper">
-                  {% if childlink.url contains '/collections/' %}
-                    {% assign url_parts = childlink.url | split: '/' %}
-                    {% assign collection_handle = url_parts.last %}
-                    {% assign collection = collections[collection_handle] %}
-                  
-                    {% if collection and collection.products.size > 0 %}
-                      {% assign first_product = collection.products.first %}
-                      {% if first_product.featured_image %}
-                        <img
-                          src="{{ first_product.featured_image | img_url: '400x' }}"
+            <div class="mega-links--wrapper">
+              {%- for childlink in link.links -%}
+                <li class="childlink mega-links
+                {% if childlink.links.size > 6 %}
+                  full-height
+                {% else %}
+                  half-height
+                {% endif %}
+            ">
+                  <div class="childlink-heading--wrapper">
+                    {% if childlink.url contains '/collections/' %}
+                      {% assign url_parts = childlink.url | split: '/' %}
+                      {% assign collection_handle = url_parts.last %}
+                      {% assign collection = collections[collection_handle] %}
+                    
+                      {% if collection and collection.products.size > 0 %}
+                        {% assign first_product = collection.products.first %}
+                        {% if first_product.featured_image %}
+                          <img
+                          src="{{ first_product.featured_image | image_url: width: 480 }}"
                           alt="{{ first_product.title | escape }}"
                           loading="lazy"
-                          width="24"
-                          height="24"
                           class="childlink-image"
-                        >
+                        />                      
+                        {% endif %}
                       {% endif %}
                     {% endif %}
-                  {% endif %}
-                  
-                  <a
-                    href="{{ childlink.url }}"
-                    class="nav-megamenu_heading"
-                    {% if childlink.current %}
-                      aria-current="page"
-                    {% endif %}
-                  >
-                    {{ childlink.title }}
-                  </a>
-                </div>
-                {%- if childlink.links != blank -%}
-                  <ul class="nav-megamenu_child" role="list">
-                    {%- for grandchildlink in childlink.links -%}
-                      <li>
-                        <a
-                          href="{{ grandchildlink.url }}"
-                          {% if grandchildlink.current %}
-                            aria-current="page"
-                          {% endif %}
-                        >
-                          {{ grandchildlink.title | escape }}
-                        </a>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-                {%- endif -%}
-              </li>
-            {%- endfor -%}
+                    
+                    <a
+                      href="{{ childlink.url }}"
+                      class="nav-megamenu_heading"
+                      {% if childlink.current %}
+                        aria-current="page"
+                      {% endif %}
+                    >
+                      {{ childlink.title }}
+                    </a>
+                  </div>
+                  {%- if childlink.links != blank -%}
+                    <ul class="nav-megamenu_child" role="list">
+                      {%- for grandchildlink in childlink.links -%}
+                        <li>
+                          <a
+                            href="{{ grandchildlink.url }}"
+                            {% if grandchildlink.current %}
+                              aria-current="page"
+                            {% endif %}
+                          >
+                            {{ grandchildlink.title | escape }}
+                          </a>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                </li>
+              {%- endfor -%}
+            </div>
             {% assign menu_title = link.title | downcase | strip %}
             {% for block in section.blocks %}   
               {% assign map_title = block.settings.map_title_value_image | downcase | strip %}

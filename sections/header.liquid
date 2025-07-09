@@ -260,7 +260,7 @@
       {% else %}
         auto 1fr auto
       {% endif %};
-      padding: {{ section.settings.padding_top | divided_by: 1.5 }}px 20px {{ section.settings.padding_bottom | divided_by: 1.5 }}px;
+      padding: 26px 20px 25px;
     }
     #header-search {
       gap: .7rem;
@@ -319,7 +319,7 @@
       </nav>
     {% endif %}
 
-    <div class="header-actions">
+    <div class="header-actions small-hide ">
       {% if section.settings.enable_country_selector or section.settings.enable_language_selector %}
         <div class="header-actions_localization">
           {%- render 'component-localization-form',
