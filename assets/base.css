@@ -2592,8 +2592,9 @@ input[type='checkbox'] {
   #main-header .menu-toggle svg{
     transform: rotate(-90deg);
   }
-  .back-button svg path{
+  body.drawer-open .back-button svg path{
     fill: #ed1b24 !important;
+    stroke: #ed1b24;
   }
   .childlink-image-mobile{
     width: 32px;
