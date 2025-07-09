@@ -254,13 +254,9 @@
       display: none;
     }
     #main-header {
-      grid-template-columns:
-      {% if section.settings.mobile_logo_position == 'center' %}
-        1fr auto 1fr
-      {% else %}
-        auto 1fr auto
-      {% endif %};
+      grid-template-columns: 1fr 1fr 1fr;
       padding: 26px 20px 25px;
+      gap: 0px
     }
     #header-search {
       gap: .7rem;
@@ -294,7 +290,49 @@
     @input="searchTerm = $event.target.value"
   >
     {% render 'component-nav-drawer' %}
+    <div class="header-actions large-up-hide">
+      {% if section.settings.enable_country_selector or section.settings.enable_language_selector %}
+        <div class="header-actions_localization">
+          {%- render 'component-localization-form',
+            enable_country_selector: section.settings.enable_country_selector,
+            enable_language_selector: section.settings.enable_language_selector
+          -%}
+        </div>
+      {% endif %}
 
+      
+      {% if shop.customer_accounts_enabled and section.settings.enable_customer_avatar %}
+        <a
+        class="header-actions_account"
+        href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}"
+        rel="nofollow"
+        >
+        {{ 'custom-account-icon.svg' | inline_asset_content }}
+        </a>
+      {% endif %}
+      
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when '@app' -%}
+            {% render block %}
+        {%- endcase -%}
+      {%- endfor -%}
+      
+      <a
+      id="header-cart-bubble"
+      {%- if settings.cart_type == 'drawer' -%}
+        @click.prevent="openCartDrawer"
+        {%- else -%}
+        href="{{ routes.cart_url }}"
+      {%- endif -%}
+      >
+        {{ 'custom-cart-icon.svg' | inline_asset_content }}
+        <div data-cart-count data-ajax-cart-bind="item_count">{{ cart.item_count }}</div>
+        </a>
+        {% unless section.settings.logo_position == 'top-center' or section.settings.menu == blank %}
+          {{ header_search }}
+        {% endunless %}
+    </div>
     {% if section.settings.logo_position == 'top-center' or section.settings.menu == blank %}
       {{ header_search }}
     {% endif %}
@@ -585,26 +623,6 @@
       "default": true,
       "label": "t:sections.header.settings.enable_customer_avatar.label",
       "info": "t:sections.header.settings.enable_customer_avatar.info"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.mobile_layout.content"
-    },
-    {
-      "type": "select",
-      "id": "mobile_logo_position",
-      "options": [
-        {
-          "value": "center",
-          "label": "t:sections.header.settings.mobile_logo_position.options__1.label"
-        },
-        {
-          "value": "left",
-          "label": "t:sections.header.settings.mobile_logo_position.options__2.label"
-        }
-      ],
-      "default": "center",
-      "label": "t:sections.header.settings.mobile_logo_position.label"
     },
     {
       "type": "header",

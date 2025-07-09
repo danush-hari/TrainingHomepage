@@ -86,7 +86,7 @@
     @click="drawerOpen = !drawerOpen"
     :class="{ 'drawer-open': drawerOpen }"
   >
-    {{- 'icon-menu.svg' | inline_asset_content -}}
+    {{- 'custom-icon-menu.svg' | inline_asset_content -}}
     {{- 'icon-close.svg' | inline_asset_content -}}
   </button>
   <div id="menu-drawer" class="color-{{ section.settings.menu_color_scheme }} gradient" :class="{ 'drawer-open': drawerOpen }">

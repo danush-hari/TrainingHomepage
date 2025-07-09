@@ -2486,18 +2486,20 @@ input[type='checkbox'] {
   gap: 16px;
   flex: 1;
   border-left: 1px solid #efefef;
+  min-height: 360px;
 }
 .block-level--links, .block-level--image{
   grid-column: span 2;
 }
-
-.half-height-pair {
-  justify-content: space-between;
+.block-level--image, .childlink.block-level--links{
+  min-height: 360px;
+  border-left: 1px solid #efefef;
 }
 
 #main-header .nav-megamenu ul li.childlink{
   padding-left: 20px;
 }
+
 #main-header nav ul li.header-toplevel-menus {
   text-transform: uppercase;
   font-weight: 700;
