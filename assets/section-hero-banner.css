@@ -3,8 +3,8 @@
 .hero-banner-section {
   position: relative;
   color: var(--hero-text-color, #FFFFFF); /* Use variable, provide fallback */
-  padding: 60px 20px;
-  min-height: 600px;
+  padding: 67px 20px;
+  min-height: 577px;
   display: flex;
   align-items: flex-end;
   background-color: #000;
@@ -42,11 +42,11 @@
 .hero-banner-section .hero-banner__content {
   position: relative;
   z-index: 3;
-  max-width: 50%;
+  max-width: 100%;
   margin-left: 0;
   margin-right: auto;
   text-align: left;
-  padding: 0 5%;
+  padding: 0 8%;
 }
 
 .hero-banner-section .hero-banner__stars {
@@ -58,34 +58,44 @@
   color: #ffc107;
   margin-right: 5px;
 }
+.hero-banner-section .hero-banner__offertext {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  margin: 0px;
+  line-height: 1;
+  color: var(--hero-text-color, #FFFFFF); 
+}
 
 .hero-banner-section .hero-banner__heading {
-  font-size: 2.5em;
+  font-size: 96px;
   margin-bottom: 5px;
-  font-weight: bold;
-  line-height: 1.2;
-  color: var(--hero-text-color, #FFFFFF); /* Explicitly use variable */
+  font-weight: 600;
+  line-height: 100%;
+  letter-spacing: 0px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  color: var(--hero-text-color, #FFFFFF); 
 }
 
 .hero-banner-section .hero-banner__subheading {
-  font-size: 1.2em;
+  font-size: 24px;
   margin-bottom: 20px;
-  max-width: 600px;
+  font-weight: 400;
+  margin: 0 0 30px 0;
 }
 
 .hero-banner-section .hero-banner__button {
   display: inline-block;
-  padding: 12px 30px;
-  background-color: #fff;
-  color: #000;
+  padding: 6px 50px;
+  background-color: #D62A27;
+  color: #FFFFFF;
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 4px;
+  font-size: 40px;
+  font-weight: 600;
+  border-radius: 2px;
   transition: background-color 0.3s ease;
-}
-
-.hero-banner-section .hero-banner__button:hover {
-  background-color: #eee;
 }
 
 .hero-banner-section .hero-banner__endorsement {
@@ -121,13 +131,23 @@
     padding: 0 10px;
     max-width: 90%;
   }
+  .hero-banner-section .hero-banner__offertext{
+    font-size: 14px;
+  }
 
   .hero-banner-section .hero-banner__heading {
-    font-size: 2em;
+    font-size: 60px;
+    margin-top: 10px;
   }
 
   .hero-banner-section .hero-banner__subheading {
-    font-size: 1em;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 48px;
+  }
+  .hero-banner-section .hero-banner__button{
+    padding: 8px 40px;
+    font-size: 20px;
   }
 
   .hero-banner-section .hero-banner__endorsement {
