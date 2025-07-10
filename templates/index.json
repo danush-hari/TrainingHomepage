@@ -1,19 +1,30 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero_banner_1": {
       "type": "hero-banner",
       "settings": {
         "background_type": "image",
-        "image_background": "shopify:\/\/shop_images\/sidekick-pro-desktop.png",
+        "image_background": "shopify://shop_images/sidekick-pro-desktop.png",
+        "image_background_mobile": "shopify://shop_images/A5A3955_1.png",
         "video_background_url": "",
         "overlay_color": "#000000",
         "overlay_opacity": 0,
         "text_color": "#ffffff",
         "stars_text": "",
+        "offer_text": "save up tp 50% off",
         "heading": "Summer Sale",
         "subheading": "Earn up to $100 in free gifts + free shipping",
         "button_text": "SHOP NOW",
-        "button_link": "shopify:\/\/collections\/cam-plans",
+        "button_link": "shopify://collections/cam-plans",
         "show_endorsement": false,
         "endorsement_name": "TJ Oshie"
       }
@@ -35,35 +46,35 @@
         "icon_block_Uk7YFD": {
           "type": "icon_block",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/image_660.png",
+            "icon": "shopify://shop_images/image_660.png",
             "text": "HAND-PICKED BY EXPERTS"
           }
         },
         "icon_block_F94Nqx": {
           "type": "icon_block",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/image_661.png",
+            "icon": "shopify://shop_images/image_661.png",
             "text": "BUILT IN THE USA"
           }
         },
         "icon_block_pXVMMx": {
           "type": "icon_block",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/image_662.png",
+            "icon": "shopify://shop_images/image_662.png",
             "text": "lifetimeguarantee"
           }
         },
         "icon_block_bdXG9b": {
           "type": "icon_block",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/image_663.png",
-            "text": "hsa\/fsaapproved"
+            "icon": "shopify://shop_images/image_663.png",
+            "text": "hsa/fsaapproved"
           }
         },
         "icon_block_K3iqez": {
           "type": "icon_block",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/image_664.png",
+            "icon": "shopify://shop_images/image_664.png",
             "text": "lifesavinggear"
           }
         }
@@ -158,7 +169,7 @@
       ],
       "name": "Image with hotspots",
       "settings": {
-        "image": "shopify:\/\/shop_images\/Buy-a-Kit-Get-a-Kit-Email-desktop.png",
+        "image": "shopify://shop_images/Buy-a-Kit-Get-a-Kit-Email-desktop.png",
         "container_width": "standard",
         "container_horizontal_alignment": "center",
         "container_vertical_alignment": "center",
