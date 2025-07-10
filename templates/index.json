@@ -1,20 +1,11 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero_banner_1": {
       "type": "hero-banner",
       "settings": {
         "background_type": "image",
-        "image_background": "shopify://shop_images/sidekick-pro-desktop.png",
-        "image_background_mobile": "shopify://shop_images/A5A3955_1.png",
+        "image_background": "shopify:\/\/shop_images\/sidekick-pro-desktop.png",
+        "image_background_mobile": "shopify:\/\/shop_images\/A5A3955_1.png",
         "video_background_url": "",
         "overlay_color": "#000000",
         "overlay_opacity": 0,
@@ -24,9 +15,69 @@
         "heading": "Summer Sale",
         "subheading": "Earn up to $100 in free gifts + free shipping",
         "button_text": "SHOP NOW",
-        "button_link": "shopify://collections/cam-plans",
+        "button_link": "shopify:\/\/collections\/cam-plans",
         "show_endorsement": false,
         "endorsement_name": "TJ Oshie"
+      }
+    },
+    "custom_collection_list_ihEQXM": {
+      "type": "custom-collection-list",
+      "blocks": {
+        "content_block_QUzEiq": {
+          "type": "content_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/medical-kits_1.png",
+            "sub_title": "Essential Kits",
+            "title": "First Aid Kits",
+            "button_text": "Shop Now  >",
+            "button_url": "shopify:\/\/products\/acb-top-in-chipped-brick"
+          }
+        },
+        "content_block_DbJCCJ": {
+          "type": "content_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MyFAKs_1800x775_f6edcbfb-9c72-4cd7-8353-0766f23a906b.png",
+            "sub_title": "Community Favorites",
+            "title": "Medpacks",
+            "button_text": "Shop Now  >",
+            "button_url": "shopify:\/\/products\/acb-top-in-chipped-brick"
+          }
+        },
+        "content_block_bMEJ3W": {
+          "type": "content_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/my-medic-edc-kit_a709a08a-37e0-4a04-80be-5a33076b06e3.png",
+            "sub_title": "Specialized Selections",
+            "title": "Refills",
+            "button_text": "Shop Now  >",
+            "button_url": "shopify:\/\/products\/acb-top-in-chipped-brick"
+          }
+        },
+        "content_block_XxcVBd": {
+          "type": "content_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_656.png",
+            "sub_title": "Trusted Gear",
+            "title": "Outlet",
+            "button_text": "Shop Now  >",
+            "button_url": "shopify:\/\/products\/acb-top-in-chipped-brick"
+          }
+        }
+      },
+      "block_order": [
+        "content_block_QUzEiq",
+        "content_block_DbJCCJ",
+        "content_block_bMEJ3W",
+        "content_block_XxcVBd"
+      ],
+      "name": "Collection List New",
+      "settings": {
+        "heading": "Collections",
+        "description": "<p>Explore our top-rated emergency kits, designed with your safety in mind. From comprehensive first aid solutions to specialized gear for any scenario, our products are trusted by professionals and adventurers alike. Be prepared for anything with MyMedic.<\/p>",
+        "color_scheme": "",
+        "card_color_scheme": "scheme-3da613a1-e62f-4bee-b5eb-842e19922254",
+        "padding_top": 60,
+        "padding_bottom": 40
       }
     },
     "fist-of-collections": {
@@ -46,35 +97,35 @@
         "icon_block_Uk7YFD": {
           "type": "icon_block",
           "settings": {
-            "icon": "shopify://shop_images/image_660.png",
+            "icon": "shopify:\/\/shop_images\/image_660.png",
             "text": "HAND-PICKED BY EXPERTS"
           }
         },
         "icon_block_F94Nqx": {
           "type": "icon_block",
           "settings": {
-            "icon": "shopify://shop_images/image_661.png",
+            "icon": "shopify:\/\/shop_images\/image_661.png",
             "text": "BUILT IN THE USA"
           }
         },
         "icon_block_pXVMMx": {
           "type": "icon_block",
           "settings": {
-            "icon": "shopify://shop_images/image_662.png",
+            "icon": "shopify:\/\/shop_images\/image_662.png",
             "text": "lifetimeguarantee"
           }
         },
         "icon_block_bdXG9b": {
           "type": "icon_block",
           "settings": {
-            "icon": "shopify://shop_images/image_663.png",
-            "text": "hsa/fsaapproved"
+            "icon": "shopify:\/\/shop_images\/image_663.png",
+            "text": "hsa\/fsaapproved"
           }
         },
         "icon_block_K3iqez": {
           "type": "icon_block",
           "settings": {
-            "icon": "shopify://shop_images/image_664.png",
+            "icon": "shopify:\/\/shop_images\/image_664.png",
             "text": "lifesavinggear"
           }
         }
@@ -169,7 +220,7 @@
       ],
       "name": "Image with hotspots",
       "settings": {
-        "image": "shopify://shop_images/Buy-a-Kit-Get-a-Kit-Email-desktop.png",
+        "image": "shopify:\/\/shop_images\/Buy-a-Kit-Get-a-Kit-Email-desktop.png",
         "container_width": "standard",
         "container_horizontal_alignment": "center",
         "container_vertical_alignment": "center",
@@ -186,6 +237,7 @@
   },
   "order": [
     "hero_banner_1",
+    "custom_collection_list_ihEQXM",
     "fist-of-collections",
     "icon_bar_df9NaB",
     "featured_products_prPT3F",

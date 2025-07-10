@@ -3878,3 +3878,131 @@ img{
     transform: translateX(100%) scaleX(0);
   }
 }
+
+/* custom css */
+.collection-list--image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.collection-list--image {
+  width: 100%;
+  display: block;
+}
+.collection-list--content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 42px 28px 25px 34px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  justify-content: space-between;
+}
+.collection-list--content a{
+  align-self: flex-end;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 8px 24px;
+}
+.collection-list--new{
+  padding: 0 5rem;
+}
+.collection-list-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.collection-list-content .content-wrapper{
+  max-width: 804px;
+}
+.collection-list--heading h2{
+  font-size: 36px;
+  line-height: 100%;
+  font-weight: 400;
+  margin: 0px;
+}
+.collection-list--description *{
+  line-height: 1.4;
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 60px;
+  letter-spacing: 0px;
+}
+.collection-list--blocks {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.collection-list--blocks::-webkit-scrollbar {
+  display: none;
+}
+.collection-list--blocks {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;   
+}
+.collection-list--subtitle{
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: 0px;
+  margin: 0px;
+  text-transform: uppercase;
+}
+.collection-list--title{
+  font-size: 30px;
+  line-height: 1.1;
+  letter-spacing: 0px;
+  font-weight: 500;
+  margin: 24px 0 0 0;
+}
+
+@media screen and (max-width: 749px) {
+  .collection-list--blocks {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+  }
+  .collection-list--image-wrapper{
+    width: 278px;
+    height: 391px;
+  }
+  .collection-list--description *{
+    font-size: 14px;
+    margin-bottom: 46px;
+  }
+  .collection-list--new{
+    padding: 0 0 0 20px;
+  }
+  .collection-list-content{
+    text-align: left;
+  }
+  .collection-list-content .content-wrapper{
+    padding-right: 20px;
+  }
+  .collection-list--block {
+    min-width: 80%;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+  .collection-list--subtitle{
+    font-size: 14px;
+  }
+  .collection-list--title{
+    margin-top: 20px;
+    font-size: 26px;
+  }
+  .collection-list--content a{
+    padding: 6px 12px;
+  }
+
+}
