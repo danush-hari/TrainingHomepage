@@ -43,6 +43,10 @@
                   loading="lazy"
                   class="collection-list--image"
                 >
+                {% else %}
+                <div class="collection-list--image placeholder">
+                  {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                </div>
               {% endif %}
         
               <div class="collection-list--content">

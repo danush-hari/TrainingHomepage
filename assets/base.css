@@ -3888,6 +3888,9 @@ img{
   width: 100%;
   display: block;
 }
+.collection-list--image.placeholder{
+  height: 450px;
+}
 .collection-list--content {
   position: absolute;
   top: 0;
