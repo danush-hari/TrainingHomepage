@@ -240,13 +240,24 @@
     color: rgb(var(--color-foreground));
   }
 
-  @media (min-width: 768px) {
-    {% unless section.settings.menu_type_desktop == 'drawer' %}
-      #header-drawer {
-        display: none;
-      }
-    {% endunless %}
+  @media screen and (min-width: 768px) and (max-width: 1000px) {
+  #main-header{
+    padding : 3rem;
   }
+  #main-header .header-shop_link{
+    display: flex;
+    justify-content: end;
+  }
+  .header-icons--wrapper{
+    display: flex;
+  }
+}
+@media screen and (min-width: 1000px){
+  .header-icons--wrapper{
+    display: none;
+  }
+}
+
   @media (max-width: 768px) {
     #main-header > nav,
     .header-actions_localization {
@@ -275,6 +286,9 @@
     #predictive-search-wrapper {
         border-top: 1px solid rgba(var(--color-foreground),var(--popup-border-opacity));
     }
+    .header-icons--wrapper{
+       display: flex;
+    }
   }
 </style>
 
@@ -297,8 +311,9 @@
     @click.outside="searchOpen = false"
     @input="searchTerm = $event.target.value"
   >
+  <div class="header-icons--wrapper">
     {% render 'component-nav-drawer' %}
-    <div class="header-actions large-up-hide">
+    <div class="header-actions">
       {% if section.settings.enable_country_selector or section.settings.enable_language_selector %}
         <div class="header-actions_localization">
           {%- render 'component-localization-form',
@@ -339,6 +354,7 @@
         </a>
       {% endif %}
     </div>
+  </div>
     {% if section.settings.logo_position == 'top-center' or section.settings.menu == blank %}
       {{ header_search }}
     {% endif %}

@@ -25,7 +25,7 @@
     white-space: nowrap;
   }
 </style>
-<ul class="nav-megamenu--wrapper">
+<ul class="nav-megamenu--wrapper medium-hide">
   {% for link in section.settings.menu.links %}
     <li x-data="{ menuOpen: false }" class="header-toplevel-menus" @mouseenter="menuOpen = true" @mouseleave="menuOpen = false">
       {% if link.links != blank %}
