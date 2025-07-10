@@ -5,10 +5,11 @@
     top: 100%;
     width: 100%;
     margin-top: 1px;
+    border-top: 3px solid black;
   }
   #main-header .nav-megamenu .page-width {
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(13, minmax(0, 1fr));
     margin-inline: auto;
     align-items: flex-start;
     padding: 30px;
@@ -19,7 +20,9 @@
     display: block;
   }
   #main-header .nav-megamenu_heading {
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: 0;
+    white-space: nowrap;
   }
 </style>
 <ul class="nav-megamenu--wrapper">
@@ -36,7 +39,7 @@
         </buttonMed>
         <div x-show="menuOpen" x-transition x-cloak class="nav-megamenu color-{{ section.settings.menu_color_scheme }} gradient" >
           <ul class="page-width" role="list">
-            <li class="childlink">
+            <li class="childlink block-level--links">
               {% assign menu_title = link.title | downcase | strip %}
               {% for block in section.blocks %}   
                 {% assign map_title = block.settings.map_title_value | downcase | strip %}
@@ -72,66 +75,129 @@
                 {% endif %}
               {% endfor %}
             </li>
-            {%- for childlink in link.links -%}
-              <li class="childlink">
-                <div class="childlink-heading--wrapper">
-                  {% if childlink.url contains '/collections/' %}
-                    {% assign url_parts = childlink.url | split: '/' %}
-                    {% assign collection_handle = url_parts.last %}
-                    {% assign collection = collections[collection_handle] %}
-                  
-                    {% if collection and collection.products.size > 0 %}
-                      {% assign first_product = collection.products.first %}
-                      {% if first_product.featured_image %}
-                        <img
-                          src="{{ first_product.featured_image | img_url: '400x' }}"
-                          alt="{{ first_product.title | escape }}"
-                          loading="lazy"
-                          width="24"
-                          height="24"
-                          class="childlink-image"
-                        >
-                      {% endif %}
-                    {% endif %}
-                  {% endif %}
-                  
-                  <a
-                    href="{{ childlink.url }}"
-                    class="nav-megamenu_heading"
-                    {% if childlink.current %}
-                      aria-current="page"
-                    {% endif %}
-                  >
-                    {{ childlink.title }}
-                  </a>
-                </div>
-                {%- if childlink.links != blank -%}
-                  <ul class="nav-megamenu_child" role="list">
-                    {%- for grandchildlink in childlink.links -%}
-                      <li>
-                        <a
-                          href="{{ grandchildlink.url }}"
-                          {% if grandchildlink.current %}
-                            aria-current="page"
+            <div class="mega-links--wrapper">
+              {%- assign buffer = "" -%}
+              {%- assign counter = 0 -%}
+            
+              {%- for childlink in link.links -%}       
+                {% if childlink.links.size > 6 %}
+                  <!-- Render full-height column -->
+                  <div class="column full-height">
+                    <li class="childlink mega-links">
+                      <div class="childlink-heading--wrapper">
+                        {% if childlink.url contains '/collections/' %}
+                          {% assign url_parts = childlink.url | split: '/' %}
+                          {% assign collection_handle = url_parts.last %}
+                          {% assign collection = collections[collection_handle] %}
+                          {% if collection and collection.products.size > 0 %}
+                            {% assign first_product = collection.products.first %}
+                            {% if first_product.featured_image %}
+                              <img
+                                src="{{ first_product.featured_image | image_url: width: 480 }}"
+                                alt="{{ first_product.title | escape }}"
+                                loading="lazy"
+                                class="childlink-image"
+                              />
+                            {% endif %}
                           {% endif %}
+                        {% endif %}
+            
+                        <a
+                          href="{{ childlink.url }}"
+                          class="nav-megamenu_heading"
+                          {% if childlink.current %} aria-current="page"{% endif %}
                         >
-                          {{ grandchildlink.title | escape }}
+                          {{ childlink.title }}
                         </a>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
+                      </div>
+            
+                      {%- if childlink.links != blank -%}
+                        <ul class="nav-megamenu_child" role="list">
+                          {%- for grandchildlink in childlink.links -%}
+                            <li>
+                              <a
+                                href="{{ grandchildlink.url }}"
+                                {% if grandchildlink.current %} aria-current="page"{% endif %}
+                              >
+                                {{ grandchildlink.title | escape }}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      {%- endif -%}
+                    </li>
+                  </div>
+                {%- else -%}
+                  {% assign counter = counter | plus: 1 %}
+                  {% capture buffer %}
+                    {{ buffer }}
+                    <li class="childlink mega-links half-height">
+                      <div class="childlink-heading--wrapper">
+                        {% if childlink.url contains '/collections/' %}
+                          {% assign url_parts = childlink.url | split: '/' %}
+                          {% assign collection_handle = url_parts.last %}
+                          {% assign collection = collections[collection_handle] %}
+                          {% if collection and collection.products.size > 0 %}
+                            {% assign first_product = collection.products.first %}
+                            {% if first_product.featured_image %}
+                              <img
+                                src="{{ first_product.featured_image | image_url: width: 480 }}"
+                                alt="{{ first_product.title | escape }}"
+                                loading="lazy"
+                                class="childlink-image"
+                              />
+                            {% endif %}
+                          {% endif %}
+                        {% endif %}
+            
+                        <a
+                          href="{{ childlink.url }}"
+                          class="nav-megamenu_heading"
+                          {% if childlink.current %} aria-current="page"{% endif %}
+                        >
+                          {{ childlink.title }}
+                        </a>
+                      </div>
+            
+                      {%- if childlink.links != blank -%}
+                        <ul class="nav-megamenu_child" role="list">
+                          {%- for grandchildlink in childlink.links -%}
+                            <li>
+                              <a
+                                href="{{ grandchildlink.url }}"
+                                {% if grandchildlink.current %} aria-current="page"{% endif %}
+                              >
+                                {{ grandchildlink.title | escape }}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      {%- endif -%}
+                    </li>
+                  {% endcapture %}
+            
+                  {% if counter == 2 or forloop.last %}
+                    <div class="column half-height-pair">
+                      {{ buffer }}
+                    </div>
+                    {% assign buffer = "" %}
+                    {% assign counter = 0 %}
+                  {% endif %}
                 {%- endif -%}
-              </li>
-            {%- endfor -%}
+              {%- endfor -%}
+            </div>
+            
             {% assign menu_title = link.title | downcase | strip %}
             {% for block in section.blocks %}   
               {% assign map_title = block.settings.map_title_value_image | downcase | strip %}
               {% if menu_title == map_title %}
-                <img
-                  src="{{ block.settings.mega_menu_image | img_url: '400x' }}"
-                  loading="lazy"
-                  alt="Menu Image"
-                >
+                <div class="block-level--image">
+                  <img
+                    src="{{ block.settings.mega_menu_image | img_url: '400x' }}"
+                    loading="lazy"
+                    alt="Menu Image"
+                  >
+                </div>
               {% endif %}
               
             {%- endfor -%}    

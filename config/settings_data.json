@@ -1,6 +1,6 @@
 {
   "current": {
-    "logo": "shopify:\/\/shop_images\/eb2560cfff50a629997e4546ba811a75868c3578.png",
+    "logo": "shopify:\/\/shop_images\/Artboard_19.svg",
     "logo_height": 30,
     "type_header_font": "poppins_n4",
     "heading_scale": 100,
@@ -103,12 +103,12 @@
     "social_facebook_link": "xxx",
     "social_instagram_link": "xxx",
     "social_youtube_link": "xxx",
-    "social_tiktok_link": "xxx",
+    "social_tiktok_link": "",
     "social_twitter_link": "xxx",
-    "social_snapchat_link": "xxx",
-    "social_pinterest_link": "xxx",
-    "social_tumblr_link": "xxx",
-    "social_vimeo_link": "xxx",
+    "social_snapchat_link": "",
+    "social_pinterest_link": "",
+    "social_tumblr_link": "",
+    "social_vimeo_link": "",
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": true,
     "predictive_search_show_price": true,
@@ -132,7 +132,6 @@
           "enable_country_selector": true,
           "enable_language_selector": true,
           "enable_customer_avatar": true,
-          "mobile_logo_position": "center",
           "margin_bottom": 0,
           "padding_top": 20,
           "padding_bottom": 20

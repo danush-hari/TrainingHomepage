@@ -11,13 +11,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-bottom: calc(var(--header-height) + 29px);
   }
   #header-drawer #menu-drawer.drawer-open {
     transform: translateX(0);
   }
-  #main-header .header-drawer_icons svg {
-    width: 20px;
-  }
+ 
   #header-drawer .header-drawer_icons.drawer-open svg.icon-menu,
   #header-drawer .header-drawer_icons:not(.drawer-open) svg.icon-close {
     display: none;
@@ -37,14 +36,17 @@
     gap: 10px;
     font-size: 15px;
     line-height: 1.5;
+    text-transform: uppercase;
     padding: 12px 18px;
-    border-bottom: 1px solid rgb(var(--color-foreground), 0.2);
     text-decoration: none;
     width: 100%;
-    color: rgba(var(--color-foreground), 0.75);
+    color: inherit;
   }
-  #menu-drawer a:hover {
-    color: rgb(var(--color-foreground));
+  #menu-drawer li.grandchild-link a, #menu-drawer .menu-toggle.childlink-block{
+    padding: 11px 12px;
+  }
+  #menu-drawer li.grandchild-link ,#menu-drawer .child-link--wrapper li.childlink-block{
+    padding-left: 18px;
   }
   .menu-drawer_action {
     display: flex;
@@ -76,37 +78,23 @@
     border: 1px solid rgb(var(--color-foreground), 0.2);
   }
 </style>
+
 <div
-  id="header-drawer"
-  x-data="{ drawerOpen: false }"
-  @click.outside="drawerOpen = false"
->
+  id="header-drawer" x-data="{ drawerOpen: false }" @click.outside="drawerOpen = false" x-effect="document.body.classList.toggle('overflow-hidden', drawerOpen);document.body.classList.toggle('drawer-open', drawerOpen);">
   <button
     class="header-drawer_icons"
     @click="drawerOpen = !drawerOpen"
     :class="{ 'drawer-open': drawerOpen }"
   >
-    {{- 'icon-menu.svg' | inline_asset_content -}}
+    {{- 'custom-icon-menu.svg' | inline_asset_content -}}
     {{- 'icon-close.svg' | inline_asset_content -}}
   </button>
   <div id="menu-drawer" class="color-{{ section.settings.menu_color_scheme }} gradient" :class="{ 'drawer-open': drawerOpen }">
     {% render 'component-nav-dropdown', nav_style: 'drawer' %}
-
-    <div class="menu-drawer_action">
-      {% if section.settings.enable_country_selector or section.settings.enable_language_selector %}
-        <div class="menu-drawer_localization">
-          {%- render 'component-localization-form',
-            enable_country_selector: section.settings.enable_country_selector,
-            enable_language_selector: section.settings.enable_language_selector
-          -%}
-        </div>
-      {% endif %}
-
-      {% if shop.customer_accounts_enabled and section.settings.enable_customer_avatar %}
-        <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" rel="nofollow">
-          {{ 'icon-account.svg' | inline_asset_content }}
-        </a>
-      {% endif %}
-    </div>
+     {% if section.settings.enable_social_icons_mobile == true %}
+      <div class="social-icons--wrapper">
+        {% render 'menu-drawer-socials' %}
+      </div>
+    {% endif %}
   </div>
 </div>

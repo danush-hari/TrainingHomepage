@@ -2421,6 +2421,8 @@ input[type='checkbox'] {
 }
 .childlink-image{
   max-width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
 .childlink-heading--wrapper{
   display: flex;
@@ -2432,6 +2434,7 @@ input[type='checkbox'] {
   font-size: 13px;
   padding: 8px 0;
   text-transform: none;
+  letter-spacing: -0.02em;
 }
 .childlink-heading--wrapper .nav-megamenu_heading{
   font-weight: 700;
@@ -2465,31 +2468,167 @@ input[type='checkbox'] {
   font-size: 16px;
   font-weight: 600;
   text-transform: none;
+  letter-spacing: 0;
 }
-#main-header .nav-megamenu ul li.childlink{
+.mega-links--wrapper{
+  grid-column: span 9;
+}
+.mega-links--wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.mega-links--wrapper .column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
   border-left: 1px solid #efefef;
+  height: 360px;
+}
+.block-level--links, .block-level--image{
+  grid-column: span 2;
+}
+.block-level--image , .childlink.block-level--links .megamenu-collections{
+  min-height: 360px;
+  border-left: 1px solid #efefef;
+}
+
+#main-header .nav-megamenu ul li.childlink ,.childlink.block-level--links .megamenu-collections{
   padding-left: 20px;
 }
-.nav-megamenu--wrapper > li{
-  padding: 38px 0 !important;
-}
+
 #main-header nav ul li.header-toplevel-menus {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 16px;
   color: #000000;
 }
+
 #main-header nav ul button:hover, #main-header nav ul li a:hover{
   color: #ed1b24;
 }
+@media screen and (min-width: 750px) and (max-width: 1300px) {
+  .nav-megamenu--wrapper>li {
+    padding: 20px 0 !important;
+  }
+}
+@media screen and (min-width: 750px) and (max-width: 1000px) {
+  #main-header nav ul{
+    gap: 1rem;
+  }
+}
+
 @media screen and (max-width: 749px) {
+  #menu-drawer.drawer-open {
+    background-color: black;
+    color : white;
+  }
+  #menu-drawer.drawer-open .menu-subdrawer{
+    background: black;
+  }
+  #menu-drawer.drawer-open svg path{
+    fill: white;
+  }
+  #menu-drawer .menu-toggle.childlink-block{
+    font-weight: 600;
+  }
+  body.drawer-open header{
+    background: black;
+    color : white;
+  }
+  body.drawer-open header svg path{
+    stroke: white;
+  }
+  body.drawer-open .header-logo{
+    filter: brightness(0) invert(1);
+  }
   .header--has-app {
     grid-template-columns: auto 1fr auto;
+  }
+  #main-header .header-drawer_icons svg{
+    width: 24px;
+    height: 19px;
+  }
+  #header-drawer{
+    width: fit-content;
+  }
+  .menu-subdrawer {
+    position: absolute;
+    inset: 0;
+    background: white;
+    z-index: 10;
+    padding: 1.9rem;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: calc(var(--header-height) + 29px);
+  }
+  .icon-close path{
+    stroke-width: 4;
+  }
+  .back-button{
+    display: flex;
+  }
+  .back-button > button {
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    padding : 0px 8px 0px 0px;
+  }
+  
+  .submenu-title {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0px;
+    color: #ed1b24;
+  }
+  #menu-drawer li.grandchild-link, .child-link--wrapper .childlink-block{
+    display: flex;
+    align-items:center;
+  }
+  #menu-drawer .grandchild-link .no-image{
+    padding-left: 42px;
+  }
+  #main-header .menu-toggle svg{
+    transform: rotate(-90deg);
+  }
+  body.drawer-open .back-button svg path{
+    fill: #ed1b24 !important;
+    stroke: #ed1b24;
+  }
+  .childlink-image-mobile{
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+  }
+  .social-icons--wrapper{
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding-left: 19px;
+    margin-top: auto;
+    z-index: 100;
+    background: inherit;
+  }
+  #menu-drawer .social-icons--wrapper .link.list-social__link{
+    width: fit-content;
+    padding: 0px;
   }
 }
 @media screen and (min-width: 1300px){
   #main-header nav ul{
     gap: 17px;
+  }
+  .nav-megamenu--wrapper > li{
+    padding: 38px 0 !important;
+  }
+  #main-header .header-drawer_icons svg {
+    width: 20px;
   }
 } 
 
@@ -2551,7 +2690,14 @@ input[type='checkbox'] {
 .header *[tabindex='-1']:focus {
   outline: none;
 }
-
+body #menu-drawer .menu-drawer--toplevel{
+  font-weight: 700;
+  font-size: 20px;
+}
+.back-button .icon.icon-caret{
+  width: 12px;
+  transform: rotate(90deg);
+}
 .header__heading {
   margin: 0;
   line-height: 0;
