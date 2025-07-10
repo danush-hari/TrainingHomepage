@@ -143,6 +143,52 @@
         "text_color": "#4d4d4d"
       }
     },
+    "custom_testimonail_nfmqLi": {
+      "type": "custom-testimonail",
+      "blocks": {
+        "content_block_PApXVA": {
+          "type": "content_block",
+          "settings": {
+            "testimonial_comment": "<p>“This kit is the perfect fill-in for a well designed trauma package! It could mean the difference between life or death!”<\/p>",
+            "testimonial_author": "-Michael B."
+          }
+        },
+        "content_block_mfB6zQ": {
+          "type": "content_block",
+          "settings": {
+            "testimonial_comment": "<p><em>“This kit is the perfect fill-in for a well designed trauma package! It could mean the difference between life or death!”<\/em><\/p>",
+            "testimonial_author": "-Michael B."
+          }
+        },
+        "content_block_bUWKMQ": {
+          "type": "content_block",
+          "settings": {
+            "testimonial_comment": "<p>“This kit is the perfect fill-in for a well designed trauma package! It could mean the difference between life or death!”<\/p>",
+            "testimonial_author": "-Michael B."
+          }
+        }
+      },
+      "block_order": [
+        "content_block_PApXVA",
+        "content_block_mfB6zQ",
+        "content_block_bUWKMQ"
+      ],
+      "name": "Custom Testimonials",
+      "settings": {
+        "section_title": "real world life-savers",
+        "title_color": "#313131",
+        "background_color": "#f1f1f1",
+        "show_arrows": true,
+        "show_pagination": true,
+        "slides_per_view": 1,
+        "space_between": 20,
+        "loop": true,
+        "autoplay": true,
+        "speed": 500,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "featured_products_prPT3F": {
       "type": "featured-products",
       "blocks": {
@@ -240,6 +286,7 @@
     "custom_collection_list_ihEQXM",
     "fist-of-collections",
     "icon_bar_df9NaB",
+    "custom_testimonail_nfmqLi",
     "featured_products_prPT3F",
     "image_hotspots_9T6rdw"
   ]
