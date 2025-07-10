@@ -14,7 +14,7 @@
   <div class="featured-products-section page-width">
     <div class="featured-products__header">
       <div class="featured-products__titles">
-        {%- if heading != blank -%}
+        {%- if heading != blank and section.settings.enable_heading_with_products == false -%}
           <h2 class="featured-products__heading">{{ heading | escape }}</h2>
         {%- endif -%}
         {%- if subheading != blank -%}
@@ -29,8 +29,11 @@
     </div>
 
     {% comment %} Use the grid classes from base.css (flexbox based) {% endcomment %}
-    {%- assign grid_classes = 'grid grid--4-col-desktop grid--2-col-tablet-down' -%}
+    {%- assign grid_classes = 'grid grid--5-col-desktop grid--2-col-tablet-down' -%}
     <div class="featured-products__grid {{ grid_classes }}">
+      {%- if heading != blank and section.settings.enable_heading_with_products == true -%}
+        <h2 class="featured-products__heading grid__item">{{ heading | escape }}</h2>
+      {%- endif -%}
       {%- for block in section.blocks -%}
         {%- assign product = block.settings.product -%}
         <div class="featured-products__card grid__item" {{ block.shopify_attributes }}>
@@ -59,33 +62,49 @@
                 {%- else -%}
                   {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg product-card__image' }}
                 {%- endif -%}
-
-                {%- assign saved_amount = product.compare_at_price | minus: product.price | money_without_trailing_zeros -%}
                 {%- if product.compare_at_price > product.price -%}
-                  <span class="product-card__badge">Save {{ saved_amount }}</span>
+                  {%- assign saved_amount = product.compare_at_price | minus: product.price -%}
+                  {%- assign saved_percent = saved_amount
+                    | times: 100.0
+                    | divided_by: product.compare_at_price
+                    | round
+                  -%}
+
+                  <span class="product-card__badge"> Sale -{{ saved_percent }}% </span>
                 {%- endif -%}
               </div>
-
-              <div class="product-card__info">
+            </a>
+            <div class="product-card__info">
+              <a href="{{ product.url | default: '#' }}" class="full-unstyled-link">
                 <h3 class="product-card__title">{{ product.title | default: 'Product Title' }}</h3>
                 {% comment %} Placeholder for reviews/ratings {% endcomment %}
-                <div class="product-card__reviews">
-                  <span class="visually-hidden">Rating:</span>
-                  <span class="product-card__stars">★★★★☆</span>
-                  <a href="#reviews" class="product-card__review-link">
-                    <span class="product-card__review-count">(10) Reviews</span>
-                  </a>
-                </div>
+                {% if section.settings.enable_ratings == true %}
+                  <div class="product-card__reviews">
+                    <span class="visually-hidden">Rating:</span>
+                    <span class="product-card__stars">★★★★☆</span>
+                    <a href="#reviews" class="product-card__review-link">
+                      <span class="product-card__review-count">(10) Reviews</span>
+                    </a>
+                  </div>
+                {% endif %}
                 <div class="product-card__price">
-                  {%- if product.compare_at_price > product.price -%}
-                    <s class="price__compare-at">{{ product.compare_at_price | money }}</s>
-                  {%- endif -%}
                   <span class="price__regular {% if product.compare_at_price > product.price %}price--on-sale{% endif %}">
                     {{ product.price | money }}
                   </span>
+                  {%- if product.compare_at_price > product.price -%}
+                    <span class="price__compare-at">{{ product.compare_at_price | money }}</span>
+                  {%- endif -%}
                 </div>
-              </div>
-            </a>
+                <div class="product-card__inventory">
+                  <span>{{ product.selected_or_first_available_variant.inventory_quantity }} in Stock</span>
+                </div>
+                <div class="product-card__redirect">
+                  <p>{{ block.settings.product_redirection_text }}</p>
+
+                  <span>&gt;</span>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       {%- endfor -%}
@@ -106,6 +125,13 @@
       "default": "Shop the Pro Selection"
     },
     {
+      "type": "checkbox",
+      "label": "Enable Heading with Products",
+      "default": true,
+      "id": "enable_heading_with_products",
+      "info": "This Option Only Works on Desktop"
+    },
+    {
       "type": "text",
       "id": "subheading",
       "label": "Subheading",
@@ -121,6 +147,12 @@
       "type": "url",
       "id": "view_all_url",
       "label": "'View All' Link URL"
+    },
+    {
+      "type": "checkbox",
+      "label": "Enable Ratings",
+      "default": false,
+      "id": "enable_ratings"
     }
   ],
   "blocks": [
@@ -133,6 +165,12 @@
           "type": "product",
           "id": "product",
           "label": "Product"
+        },
+        {
+          "type": "text",
+          "label": "Product Redirection Text",
+          "id": "product_redirection_text",
+          "default": "Shop Now"
         }
       ]
     }
@@ -140,7 +178,12 @@
   "presets": [
     {
       "name": "Featured Products",
-      "blocks": [{ "type": "product_card" }, { "type": "product_card" }, { "type": "product_card" }, { "type": "product_card" }]
+      "blocks": [
+        { "type": "product_card" },
+        { "type": "product_card" },
+        { "type": "product_card" },
+        { "type": "product_card" }
+      ]
     }
   ]
 }
