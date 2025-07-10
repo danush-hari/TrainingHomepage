@@ -3977,7 +3977,21 @@ img{
   font-weight: 700;
   text-transform: uppercase;
 }
-
+.testimonial-title{
+  display: flex;
+  justify-content: center;
+}
+.testimonial-title{
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  padding: 14px 0;
+}
+.swiper-component{
+  margin-top: 60px;
+}
 /* Responsive styles */
 
 @media screen and (max-width: 749px) {

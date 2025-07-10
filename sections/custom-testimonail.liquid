@@ -1,0 +1,184 @@
+<script src="{{ 'swiper-component.js' | asset_url }}" defer></script>
+{% style %}
+  .testimonial-title--{{ section.id}}{
+    color : {{ section.settings.title_color}};
+    background : {{ section.settings.background_color}};
+  }
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  @media only screen and (max-width: 749px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+    }
+  }
+{% endstyle %}
+
+{% capture SwiperOptions %}
+  {
+    "slidesPerView": {{ section.settings.slides_per_view }},
+    "spaceBetween": {{ section.settings.space_between }},
+    "loop": {{ section.settings.loop }},
+    "autoplay": {{ section.settings.autoplay }},
+    "speed": {{ section.settings.speed }},
+    "navigation": {{ section.settings.show_arrows }},
+    "pagination": {{ section.settings.show_pagination }}
+  }
+{% endcapture %}
+<div class="testimonial-section section-{{ section.id }}-padding">
+  {% if section.settings.section_title != blank %}
+    <div class="testimonial-title testimonial-title--{{ section.id}}">
+      {{ section.settings.section_title }}
+    </div>
+  {% endif %}
+  {% if section.blocks.size > 0 %}
+    <swiper-component data-options="{{ SwiperOptions | strip_newlines }}" class="swiper-component">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="swiper-slide">
+                <div class="testimonial_comment">
+                    {{ block.settings.testimonial_comment}}
+                </div>
+                <div class="testimonial_author">
+                    {{ block.settings.testimonial_author }}
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        {% if section.settings.show_pagination %}
+          <div class="swiper-pagination"></div>
+        {% endif %}
+
+        {% if section.settings.show_arrows %}
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        {% endif %}
+
+        <div class="swiper-scrollbar"></div>
+      </div>
+    </swiper-component>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Custom Testimonials",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section title"
+    },
+    {
+      "type": "color",
+      "label": "Title Color",
+      "id": "title_color"
+    },
+    {
+      "type": "color",
+      "label": "Background Color",
+      "id": "background_color"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "Show navigation arrows",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "label": "Show pagination bullets",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "slides_per_view",
+      "label": "Slides per view (desktop)",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "space_between",
+      "label": "Space between slides (px)",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "default": 20
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Enable loop mode",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Transition speed (ms)",
+      "min": 100,
+      "max": 3000,
+      "step": 100,
+      "default": 500
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top (px)",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom (px)",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content_block",
+      "name": "Content Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "testimonial_comment",
+          "label": "Testimonial Comment"
+        },
+        {
+          "type": "text",
+          "id": "testimonial_author",
+          "label": "Testimonial Author"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Testimonials",
+      "category": "Custom",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}
