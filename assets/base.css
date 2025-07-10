@@ -3964,6 +3964,19 @@ img{
   margin: 24px 0 0 0;
 }
 
+.icon-bar-text {
+  margin: 0;
+  font-size: 1.6rem;
+  text-align: left;
+  line-height: 1.1;
+  letter-spacing: 0px;
+  width: 115px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Responsive styles */
+
 @media screen and (max-width: 749px) {
   .collection-list--blocks {
     display: flex;
@@ -3990,7 +4003,6 @@ img{
     padding-right: 20px;
   }
   .collection-list--block {
-    min-width: 80%;
     flex: 0 0 auto;
     scroll-snap-align: start;
   }
@@ -4004,5 +4016,22 @@ img{
   .collection-list--content a{
     padding: 6px 12px;
   }
-
+  .icon-bar-section .icon-bar-container {
+    padding: 0 16px;
+    justify-content: center;
+    gap: 6px;
+  }
+  .icon-bar-text {
+    font-size: 10px;
+    width: 72px;
+  }
+  .icon-bar-icon img{
+    width: 50px;
+    height: 38px;
+  }
+}
+@media (max-width: 380px) {
+  .icon-bar-text {
+    width: 55px;
+  }
 }

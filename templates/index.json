@@ -112,21 +112,21 @@
           "type": "icon_block",
           "settings": {
             "icon": "shopify:\/\/shop_images\/image_662.png",
-            "text": "lifetimeguarantee"
+            "text": "lifetime guarantee"
           }
         },
         "icon_block_bdXG9b": {
           "type": "icon_block",
           "settings": {
             "icon": "shopify:\/\/shop_images\/image_663.png",
-            "text": "hsa\/fsaapproved"
+            "text": "hsa\/fsa approved"
           }
         },
         "icon_block_K3iqez": {
           "type": "icon_block",
           "settings": {
             "icon": "shopify:\/\/shop_images\/image_664.png",
-            "text": "lifesavinggear"
+            "text": "lifesaving gear"
           }
         }
       },
