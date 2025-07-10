@@ -39,13 +39,13 @@
         </button>
         {%- comment -%}Top Level Submenu Overlay{%- endcomment -%}
         <div
-          class="menu-subdrawer"
+          :class="activeMenu === '{{ link.title | escape }}' ? 'menu-subdrawer enter-from-right' : 'menu-subdrawer'"
           x-show="activeMenu === '{{ link.title | escape }}'"
           x-transition
           x-cloak
         >
           <div class="back-button">
-            <button @click="activeMenu = null">
+            <button @click="activeMenu = null" :class>
               {{ 'icon-caret.svg' | inline_asset_content }}
             </button>
             <h3 class="submenu-title">{{ link.title }}</h3>
@@ -67,7 +67,7 @@
                         alt="{{ first_product.title | escape }}"
                         loading="lazy"
                         class="childlink-image-mobile"
-                      />
+                      >
                     {% endif %}
                   {% endif %}
                 {% endif %}
@@ -84,7 +84,6 @@
                 {% endif %}
               </li>
             {% endfor %}
-            
           </ul>
         </div>
 
@@ -92,7 +91,7 @@
         {% for childlink in link.links %}
           {% if childlink.links != blank %}
             <div
-              class="menu-subdrawer"
+              :class="activeSubMenu === '{{ childlink.title | escape }}' ? 'menu-subdrawer enter-from-right' : 'menu-subdrawer'"
               x-show="activeSubMenu === '{{ childlink.title | escape }}'"
               x-transition
               x-cloak
@@ -123,9 +122,16 @@
                         {% endif %}
                       {% endif %}
                     {% endif %}
-                    <a href="{{ grandchildlink.url }}" class="{% unless grandchildlink.url contains '/collections/' %}
-                      no-image
-                     {% endunless %}">{{ grandchildlink.title }}</a>
+                    <a
+                      href="{{ grandchildlink.url }}"
+                      class="
+                        {% unless grandchildlink.url contains '/collections/' %}
+                         no-image
+                        {% endunless %}
+                      "
+                    >
+                      {{- grandchildlink.title -}}
+                    </a>
                   </li>
                 {% endfor %}
               </ul>
@@ -138,5 +144,4 @@
       {% endif %}
     </li>
   {% endfor %}
-  
 </ul>
