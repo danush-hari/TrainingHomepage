@@ -1,11 +1,20 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero_banner_1": {
       "type": "hero-banner",
       "settings": {
         "background_type": "image",
-        "image_background": "shopify:\/\/shop_images\/sidekick-pro-desktop.png",
-        "image_background_mobile": "shopify:\/\/shop_images\/A5A3955_1.png",
+        "image_background": "shopify://shop_images/sidekick-pro-desktop.png",
+        "image_background_mobile": "shopify://shop_images/A5A3955_1.png",
         "video_background_url": "",
         "overlay_color": "#000000",
         "overlay_opacity": 0,
@@ -15,7 +24,7 @@
         "heading": "Summer Sale",
         "subheading": "Earn up to $100 in free gifts + free shipping",
         "button_text": "SHOP NOW",
-        "button_link": "shopify:\/\/collections\/cam-plans",
+        "button_link": "shopify://collections/cam-plans",
         "show_endorsement": false,
         "endorsement_name": "TJ Oshie"
       }
@@ -26,41 +35,41 @@
         "content_block_QUzEiq": {
           "type": "content_block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/medical-kits_1.png",
+            "image": "shopify://shop_images/medical-kits_1.png",
             "sub_title": "Essential Kits",
             "title": "First Aid Kits",
             "button_text": "Shop Now  >",
-            "button_url": "shopify:\/\/products\/acb-top-in-chipped-brick"
+            "button_url": "shopify://products/acb-top-in-chipped-brick"
           }
         },
         "content_block_DbJCCJ": {
           "type": "content_block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MyFAKs_1800x775_f6edcbfb-9c72-4cd7-8353-0766f23a906b.png",
+            "image": "shopify://shop_images/MyFAKs_1800x775_f6edcbfb-9c72-4cd7-8353-0766f23a906b.png",
             "sub_title": "Community Favorites",
             "title": "Medpacks",
             "button_text": "Shop Now  >",
-            "button_url": "shopify:\/\/products\/acb-top-in-chipped-brick"
+            "button_url": "shopify://products/acb-top-in-chipped-brick"
           }
         },
         "content_block_bMEJ3W": {
           "type": "content_block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/my-medic-edc-kit_a709a08a-37e0-4a04-80be-5a33076b06e3.png",
+            "image": "shopify://shop_images/my-medic-edc-kit_a709a08a-37e0-4a04-80be-5a33076b06e3.png",
             "sub_title": "Specialized Selections",
             "title": "Refills",
             "button_text": "Shop Now  >",
-            "button_url": "shopify:\/\/products\/acb-top-in-chipped-brick"
+            "button_url": "shopify://products/acb-top-in-chipped-brick"
           }
         },
         "content_block_XxcVBd": {
           "type": "content_block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_656.png",
+            "image": "shopify://shop_images/image_656.png",
             "sub_title": "Trusted Gear",
             "title": "Outlet",
             "button_text": "Shop Now  >",
-            "button_url": "shopify:\/\/products\/acb-top-in-chipped-brick"
+            "button_url": "shopify://products/acb-top-in-chipped-brick"
           }
         }
       },
@@ -73,7 +82,7 @@
       "name": "Collection List New",
       "settings": {
         "heading": "Collections",
-        "description": "<p>Explore our top-rated emergency kits, designed with your safety in mind. From comprehensive first aid solutions to specialized gear for any scenario, our products are trusted by professionals and adventurers alike. Be prepared for anything with MyMedic.<\/p>",
+        "description": "<p>Explore our top-rated emergency kits, designed with your safety in mind. From comprehensive first aid solutions to specialized gear for any scenario, our products are trusted by professionals and adventurers alike. Be prepared for anything with MyMedic.</p>",
         "color_scheme": "",
         "card_color_scheme": "scheme-3da613a1-e62f-4bee-b5eb-842e19922254",
         "padding_top": 60,
@@ -97,35 +106,35 @@
         "icon_block_Uk7YFD": {
           "type": "icon_block",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/image_660.png",
+            "icon": "shopify://shop_images/image_660.png",
             "text": "HAND-PICKED BY EXPERTS"
           }
         },
         "icon_block_F94Nqx": {
           "type": "icon_block",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/image_661.png",
+            "icon": "shopify://shop_images/image_661.png",
             "text": "BUILT IN THE USA"
           }
         },
         "icon_block_pXVMMx": {
           "type": "icon_block",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/image_662.png",
+            "icon": "shopify://shop_images/image_662.png",
             "text": "lifetime guarantee"
           }
         },
         "icon_block_bdXG9b": {
           "type": "icon_block",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/image_663.png",
-            "text": "hsa\/fsa approved"
+            "icon": "shopify://shop_images/image_663.png",
+            "text": "hsa/fsa approved"
           }
         },
         "icon_block_K3iqez": {
           "type": "icon_block",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/image_664.png",
+            "icon": "shopify://shop_images/image_664.png",
             "text": "lifesaving gear"
           }
         }
@@ -149,21 +158,21 @@
         "content_block_PApXVA": {
           "type": "content_block",
           "settings": {
-            "testimonial_comment": "<p>“This kit is the perfect fill-in for a well designed trauma package! It could mean the difference between life or death!”<\/p>",
+            "testimonial_comment": "<p>“This kit is the perfect fill-in for a well designed trauma package! It could mean the difference between life or death!”</p>",
             "testimonial_author": "-Michael B."
           }
         },
         "content_block_mfB6zQ": {
           "type": "content_block",
           "settings": {
-            "testimonial_comment": "<p><em>“This kit is the perfect fill-in for a well designed trauma package! It could mean the difference between life or death!”<\/em><\/p>",
+            "testimonial_comment": "<p><em>“This kit is the perfect fill-in for a well designed trauma package! It could mean the difference between life or death!”</em></p>",
             "testimonial_author": "-Michael B."
           }
         },
         "content_block_bUWKMQ": {
           "type": "content_block",
           "settings": {
-            "testimonial_comment": "<p>“This kit is the perfect fill-in for a well designed trauma package! It could mean the difference between life or death!”<\/p>",
+            "testimonial_comment": "<p>“This kit is the perfect fill-in for a well designed trauma package! It could mean the difference between life or death!”</p>",
             "testimonial_author": "-Michael B."
           }
         }
@@ -243,7 +252,7 @@
         "hotspot_aRRDDn": {
           "type": "hotspot",
           "settings": {
-            "image": "shopify:\/\/shop_images\/question_10821051_1_0212845e-9b9e-48b4-9718-c5085516d232.png",
+            "image": "shopify://shop_images/question_10821051_1_0212845e-9b9e-48b4-9718-c5085516d232.png",
             "heading": "Life Saving Gear",
             "description": "Life Saving Gear Life Saving Gear Life Saving Gear",
             "position_x": 82,
@@ -255,7 +264,7 @@
         "hotspot_368nMg": {
           "type": "hotspot",
           "settings": {
-            "image": "shopify:\/\/shop_images\/worldwide_15808138_2.png",
+            "image": "shopify://shop_images/worldwide_15808138_2.png",
             "heading": "Life Saving Gear",
             "description": "Life Saving Gear Life Saving Gear Life Saving Gear",
             "position_x": 70,
@@ -267,7 +276,7 @@
         "hotspot_K4kwJg": {
           "type": "hotspot",
           "settings": {
-            "image": "shopify:\/\/shop_images\/worldwide_15808138_2_6ffd423c-be08-47d7-9504-560026b77612.png",
+            "image": "shopify://shop_images/worldwide_15808138_2_6ffd423c-be08-47d7-9504-560026b77612.png",
             "heading": "Life Saving Gear",
             "description": "Life Saving Gear Life Saving Gear Life Saving Gear",
             "position_x": 50,
@@ -284,10 +293,10 @@
       ],
       "name": "Image with hotspots",
       "settings": {
-        "image": "shopify:\/\/shop_images\/Buy-a-Kit-Get-a-Kit-Email-desktop.png",
-        "mobile_image": "shopify:\/\/shop_images\/Buy-a-Kit-Get-a-Kit-Email-mobile_1_1.png",
+        "image": "shopify://shop_images/Buy-a-Kit-Get-a-Kit-Email-desktop.png",
+        "mobile_image": "shopify://shop_images/Buy-a-Kit-Get-a-Kit-Email-mobile_1_1.png",
         "heading": "my medic",
-        "description": "<p>We are committed to excellence in all we do and to fostering a spirit of community. At MyMedic, we ensure that everything else falls into place by prioritizing top-quality products and caring for each other.<\/p>",
+        "description": "<p>We are committed to excellence in all we do and to fostering a spirit of community. At MyMedic, we ensure that everything else falls into place by prioritizing top-quality products and caring for each other.</p>",
         "container_width": "standard",
         "container_horizontal_alignment": "center",
         "container_vertical_alignment": "center",
@@ -310,10 +319,10 @@
             "color_scheme": "scheme-c8670537-efae-41bc-bd51-6f6ab27ff7c9",
             "tag_text": "limited time only",
             "heading": "Sale now on!",
-            "description": "<p>Our best offers won’t be around forever!<\/p>",
+            "description": "<p>Our best offers won’t be around forever!</p>",
             "deadline": "07-30-2025",
             "button_text": "Shop Now",
-            "url": "shopify:\/\/products\/alex-twill-pant-mariner"
+            "url": "shopify://products/alex-twill-pant-mariner"
           }
         }
       },
@@ -322,8 +331,8 @@
       ],
       "name": "Image Banner with Blocks",
       "settings": {
-        "image": "shopify:\/\/shop_images\/V2-MyFAK-PRO-bottomstory-banner.png",
-        "mobile_image": "shopify:\/\/shop_images\/V2-Homepage-aboutus-mobile_2.png",
+        "image": "shopify://shop_images/V2-MyFAK-PRO-bottomstory-banner.png",
+        "mobile_image": "shopify://shop_images/V2-Homepage-aboutus-mobile_2.png",
         "alignment": "flex-start",
         "padding_top": 40,
         "padding_bottom": 40,
@@ -343,9 +352,9 @@
           "settings": {
             "color_scheme": "scheme-22c64b8d-66cd-47b3-b84a-0898d51ca6a5",
             "heading": "about us",
-            "description": "<p>Our goal at My Medic is to prepare you with the equipment and training for the unexpected emergency.<\/p>",
+            "description": "<p>Our goal at My Medic is to prepare you with the equipment and training for the unexpected emergency.</p>",
             "button_text": "learn more >",
-            "url": "shopify:\/\/products\/a-line-mini-dress-blue"
+            "url": "shopify://products/a-line-mini-dress-blue"
           }
         }
       },
@@ -354,13 +363,13 @@
       ],
       "name": "Image Banner with Blocks",
       "settings": {
-        "image": "shopify:\/\/shop_images\/image_665.png",
-        "mobile_image": "shopify:\/\/shop_images\/image_667.png",
+        "image": "shopify://shop_images/image_665.png",
+        "mobile_image": "shopify://shop_images/image_667.png",
         "alignment": "flex-start",
         "padding_top": 30,
-        "padding_bottom": 72,
-        "padding_left": 0,
-        "padding_right": 0,
+        "padding_bottom": 70,
+        "padding_left": 50,
+        "padding_right": 50,
         "padding_top_mobile": 60,
         "padding_bottom_mobile": 60,
         "padding_left_mobile": 0,
