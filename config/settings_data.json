@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "current": {
     "logo": "shopify:\/\/shop_images\/Artboard_19.svg",
@@ -152,36 +143,38 @@
           "link_list_tRGQXg": {
             "type": "link_list",
             "settings": {
-              "heading": "Quick links",
+              "heading": "Support",
               "menu": "footer"
             }
           },
           "link_list_fMhEpU": {
             "type": "link_list",
             "settings": {
-              "heading": "Quick links",
-              "menu": "footer"
+              "heading": "Company",
+              "menu": "main-menu"
             }
           },
           "link_list_FX3jmF": {
             "type": "link_list",
             "settings": {
-              "heading": "Quick links",
-              "menu": "footer"
+              "heading": "Discounts",
+              "menu": "main-menu"
             }
           },
           "link_list_qRR4Yj": {
             "type": "link_list",
             "settings": {
-              "heading": "Quick links",
-              "menu": "footer"
+              "heading": "Policies",
+              "menu": "main-menu"
             }
           },
-          "brand_information_mfQiAe": {
-            "type": "brand_information",
-            "settings": {
-              "show_social": false
-            }
+          "empty_column_JUrztG": {
+            "type": "empty_column",
+            "settings": {}
+          },
+          "empty_column_xxp6FJ": {
+            "type": "empty_column",
+            "settings": {}
           }
         },
         "block_order": [
@@ -189,20 +182,21 @@
           "link_list_fMhEpU",
           "link_list_FX3jmF",
           "link_list_qRR4Yj",
-          "brand_information_mfQiAe"
+          "empty_column_JUrztG",
+          "empty_column_xxp6FJ"
         ],
         "settings": {
           "color_scheme": "scheme-3",
           "newsletter_enable": true,
-          "newsletter_heading": "Subscribe to our emails",
-          "enable_follow_on_shop": true,
+          "newsletter_heading": "Experience Elevated First Aid",
+          "enable_follow_on_shop": false,
           "show_social": true,
-          "enable_country_selector": true,
-          "enable_language_selector": true,
-          "payment_enable": true,
-          "show_policy": true,
-          "margin_top": 64,
-          "padding_top": 36,
+          "enable_country_selector": false,
+          "enable_language_selector": false,
+          "payment_enable": false,
+          "show_policy": false,
+          "margin_top": 0,
+          "padding_top": 24,
           "padding_bottom": 36
         }
       }
