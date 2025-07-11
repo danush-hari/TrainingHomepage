@@ -1,0 +1,359 @@
+{{ 'custom-section.css' | asset_url | stylesheet_tag }}
+<script src="{{'custom-timer.js' |  asset_url}}" defer></script>
+{% style %}
+   .section-{{ section.id }}-padding {
+     padding-top: {{ section.settings.padding_top }}px;
+     padding-bottom: {{ section.settings.padding_bottom }}px;
+     padding-left : {{ section.settings.padding_left }}px;
+     padding-right : {{ section.settings.padding_right }}px;
+   }
+
+   @media only screen and (max-width: 749px) {
+     .section-{{ section.id }}-padding {
+       padding-top: {{ section.settings.padding_top_mobile}}px;
+       padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+       padding-left : {{ section.settings.padding_left_mobile }}px;
+       padding-right : {{ section.settings.padding_right_mobile }}px;
+     }
+   }
+  .section-{{ section.id }} {
+     position: relative;
+     overflow: hidden;
+   }
+   .section-{{ section.id }} .overlay-content ,.section-{{ section.id }} .overlay-content--wrapper.text-block {
+     align-items : {{ section.settings.alignment}};
+   }
+{% endstyle %}
+
+<section class="section-{{ section.id }} section-{{ section.id }}-padding">
+  <div class="image-container color-{{ section.settings.color_scheme }} gradient">
+    {% if section.settings.image %}
+      <img
+        src="{{ section.settings.image | image_url: width: 2000 }}"
+        alt=""
+        class="small-hide medium-hide"
+        loading="lazy"
+        width="{{ section.settings.image.width}}"
+        height="{{ section.settings.image.height}}"
+      >
+    {% endif %}
+
+    {% if section.settings.mobile_image %}
+      <img
+        src="{{ section.settings.mobile_image | image_url: width: 1000 }}"
+        alt=""
+        class="large-up-hide"
+        loading="lazy"
+        width="{{ section.settings.mobile_image.width}}"
+        height="{{ section.settings.mobile_image.height}}"
+      >
+    {% endif %}
+
+    {% for block in section.blocks %}
+      <div class="overlay-content">
+        {% case block.type %}
+          {% when 'timer' %}
+            <div class="timer-block overlay-content--wrapper color-{{ block.settings.color_scheme }} gradient">
+              {% if block.settings.tag_text != blank %}
+                <div class="timer-block--tag_text">
+                  {{ block.settings.tag_text }}
+                </div>
+              {% endif %}
+              {% if block.settings.heading != blank %}
+                <div class="timer-block--heading">
+                  {{ block.settings.heading }}
+                </div>
+              {% endif %}
+              {% if block.settings.description != blank %}
+                <div class="timer-block--description">
+                  {{ block.settings.description }}
+                </div>
+              {% endif %}
+              {% if block.settings.deadline != blank %}
+                <timer-block
+                  class="timer-block"
+                  id="timer-{{ block.id }}"
+                  data-deadline="{{ block.settings.deadline }}"
+                >
+                  <div class="countdown">
+                    <div class="countdown__item">
+                      <span class="countdown__number" data-unit="days">00</span>
+                      <span class="countdown__label">Day</span>
+                    </div>
+                    <span class="countdown__colon">:</span>
+                    <div class="countdown__item">
+                      <span class="countdown__number" data-unit="hours">00</span>
+                      <span class="countdown__label">Hour</span>
+                    </div>
+                    <span class="countdown__colon">:</span>
+                    <div class="countdown__item">
+                      <span class="countdown__number" data-unit="minutes">00</span>
+                      <span class="countdown__label">Min</span>
+                    </div>
+                    <span class="countdown__colon">:</span>
+                    <div class="countdown__item">
+                      <span class="countdown__number" data-unit="seconds">00</span>
+                      <span class="countdown__label">Sec</span>
+                    </div>
+                  </div>
+                </timer-block>
+              {% endif %}
+              {% if block.settings.button_text != blank %}
+                <div class="countdown-button">
+                  {% if block.settings.url != blank %}
+                    <a href="{{ block.settings.url}}" class="button full-unstyled-link">
+                  {% endif %}
+                  {{ block.settings.button_text }}
+                  {% if block.settings.url != blank %}
+                    </a>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+
+          {% when 'text_block' %}
+            <div class="overlay-content--wrapper text-block ">
+              <div class="text-block--content  color-{{ block.settings.color_scheme }} gradient">
+                {% if block.settings.heading != blank %}
+                  <h2 class="text-block--heading">
+                    {{ block.settings.heading }}
+                  </h2>
+                {% endif %}
+
+                {% if block.settings.description != blank %}
+                  <div class="text-block--description">
+                    {{ block.settings.description }}
+                  </div>
+                {% endif %}
+
+                {% if block.settings.button_text != blank %}
+                  <div class="text-block--button">
+                    {% if block.settings.url != blank %}
+                      <a href="{{ block.settings.url }}" class="button full-unstyled-link">
+                        {{ block.settings.button_text }}
+                      </a>
+                    {% else %}
+                      <span class="button is-disabled">{{ block.settings.button_text }}</span>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+        {% endcase %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Image with Blocks",
+  "tag": "section",
+  "class": "section-image-overlay",
+  "max_blocks": 1,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "header",
+      "content": "Content Alignment"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "default": "flex-end",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Desktop Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top (px)",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom (px)",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "label": "Padding Left (px)",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "label": "Padding Right (px)",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Mobile Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top Mobile(px)",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom Mobile(px)",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_left_mobile",
+      "label": "Padding Left Mobile(px)",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_right_mobile",
+      "label": "Padding Right Mobile(px)",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "timer",
+      "name": "Timer",
+      "settings": [
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "Color scheme",
+          "default": "background-1"
+        },
+        {
+          "type": "text",
+          "id": "tag_text",
+          "label": "Tag Text"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Description</p>"
+        },
+        {
+          "type": "text",
+          "id": "deadline",
+          "label": "Countdown Deadline (MM-DD-YYYY)",
+          "default": "07-05-2025",
+          "info": "Please follow exact format MM-DD-YYYY"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Button Redirection"
+        }
+      ]
+    },
+    {
+      "type": "text_block",
+      "name": "Header & Description",
+      "settings": [
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "Color scheme",
+          "default": "background-1"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Button Redirection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Banner with Blocks",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "timer"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

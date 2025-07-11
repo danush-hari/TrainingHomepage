@@ -300,6 +300,72 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "custom_section_PG8PXh": {
+      "type": "custom-section",
+      "blocks": {
+        "timer_mpyUPb": {
+          "type": "timer",
+          "settings": {
+            "color_scheme": "scheme-c8670537-efae-41bc-bd51-6f6ab27ff7c9",
+            "tag_text": "limited time only",
+            "heading": "Sale now on!",
+            "description": "<p>Our best offers won’t be around forever!<\/p>",
+            "deadline": "07-30-2025",
+            "button_text": "Shop Now",
+            "url": "shopify:\/\/products\/alex-twill-pant-mariner"
+          }
+        }
+      },
+      "block_order": [
+        "timer_mpyUPb"
+      ],
+      "name": "Image Banner with Blocks",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/V2-MyFAK-PRO-bottomstory-banner.png",
+        "mobile_image": "shopify:\/\/shop_images\/V2-Homepage-aboutus-mobile_2.png",
+        "alignment": "flex-start",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_left": 0,
+        "padding_right": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0
+      }
+    },
+    "custom_section_nQw6NG": {
+      "type": "custom-section",
+      "blocks": {
+        "text_block_RwA9KA": {
+          "type": "text_block",
+          "settings": {
+            "color_scheme": "scheme-22c64b8d-66cd-47b3-b84a-0898d51ca6a5",
+            "heading": "about us",
+            "description": "<p>Our goal at My Medic is to prepare you with the equipment and training for the unexpected emergency.<\/p>",
+            "button_text": "learn more >",
+            "url": "shopify:\/\/products\/a-line-mini-dress-blue"
+          }
+        }
+      },
+      "block_order": [
+        "text_block_RwA9KA"
+      ],
+      "name": "Image Banner with Blocks",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/image_665.png",
+        "mobile_image": "shopify:\/\/shop_images\/image_667.png",
+        "alignment": "flex-start",
+        "padding_top": 30,
+        "padding_bottom": 72,
+        "padding_left": 0,
+        "padding_right": 0,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0
+      }
     }
   },
   "order": [
@@ -309,6 +375,8 @@
     "icon_bar_df9NaB",
     "custom_testimonail_nfmqLi",
     "featured_products_prPT3F",
-    "image_hotspots_9T6rdw"
+    "image_hotspots_9T6rdw",
+    "custom_section_PG8PXh",
+    "custom_section_nQw6NG"
   ]
 }
