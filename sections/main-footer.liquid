@@ -23,7 +23,11 @@
   }
 {%- endstyle -%}
 
-<footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+<footer
+  class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding"
+  x-data="{ isMobile: window.innerWidth <= 749, openItems: {} }"
+  x-init="window.addEventListener('resize', () => isMobile = window.innerWidth <= 749)"
+>
   {%- liquid
     assign has_social_icons = true
     if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
@@ -63,7 +67,20 @@
                 {% endif %}
               >
                 {%- if block.settings.heading != blank -%}
-                  <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
+                  <h2
+                    class="footer-block__heading inline-richtext"
+                    @click="
+                      if (isMobile) {
+                        const content = $el.nextElementSibling;
+                        $el.classList.toggle('active');
+                        content.classList.toggle('open');
+                        (openItems[{{ forloop.index0 }}] = !openItems[{{ forloop.index0 }}])
+                      }
+                    "
+                    :class="{ 'active': openItems[{{ forloop.index0 }}] }"
+                  >
+                    {{- block.settings.heading -}}
+                  </h2>
                 {%- endif -%}
 
                 {%- case block.type -%}
@@ -75,7 +92,10 @@
                     </div>
                   {%- when 'link_list' -%}
                     {%- if block.settings.menu != blank -%}
-                      <ul class="footer-block__details-content list-unstyled">
+                      <ul
+                        class="footer-block__details-content list-unstyled"
+                        x-bind:class="{ 'open': !isMobile || openItems[{{ index }}] }"
+                      >
                         {%- for link in block.settings.menu.links -%}
                           <li>
                             <a
@@ -91,7 +111,9 @@
                   {%- when 'brand_information' -%}
                     <div class="footer-block__brand-info">
                       {%- if settings.brand_image != blank -%}
-                        {%- assign brand_image_height = settings.brand_image_width | divided_by: settings.brand_image.aspect_ratio -%}
+                        {%- assign brand_image_height = settings.brand_image_width
+                          | divided_by: settings.brand_image.aspect_ratio
+                        -%}
                         <div
                           class="footer-block__image-wrapper"
                           style="max-width: min(100%, {{ settings.brand_image_width }}px);"
@@ -192,9 +214,7 @@
                       id="Subscribe"
                       aria-label="{{ 'newsletter.button_label' | t }}"
                     >
-                      <span class="form-button--sign">
-                        >
-                      </span>
+                      <span class="form-button--sign"> > </span>
                     </button>
                   </div>
                   {%- if form.errors -%}
@@ -231,7 +251,7 @@
           {%- endif -%}
 
           {%- if section.settings.show_social and has_social_icons -%}
-            <div class="footer__socials-icons"> 
+            <div class="footer__socials-icons small-hide">
               {%- render 'menu-drawer-socials' -%}
             </div>
           {%- endif -%}
@@ -280,13 +300,13 @@
         -%}
       </div>
       <div class="footer__column footer__column--info">
-         <a href="{{ routes.root_url }}" class="header-shop_link" style="display: flex">
-      {% if settings.logo != blank %}
-        {{ settings.logo | image_url: width: 900 | image_tag: class: 'header-logo' }}
-      {% else %}
-        <span class="header-shop_name">{{ shop.name }}</span>
-      {% endif %}
-    </a>
+        <a href="{{ routes.root_url }}" class="header-shop_link" style="display: flex">
+          {% if settings.logo != blank %}
+            {{ settings.logo | image_url: width: 900 | image_tag: class: 'header-logo' }}
+          {% else %}
+            <span class="header-shop_name">{{ shop.name }}</span>
+          {% endif %}
+        </a>
         {%- if section.settings.payment_enable -%}
           <div class="footer__payment">
             <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
@@ -303,7 +323,9 @@
     </div>
     <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
       <div class="footer__copyright caption">
-        <small class="copyright__content">&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}</small>
+        <small class="copyright__content"
+          >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
+        </small>
       </div>
     </div>
   </div>
@@ -415,7 +437,7 @@
         }
       ]
     },
-      {
+    {
       "type": "empty_column",
       "name": "Empty Column",
       "settings": [

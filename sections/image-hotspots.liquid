@@ -108,6 +108,15 @@
                 --hotspot-pos-x: {{ pos_x }}%; --hotspot-pos-y: {{ pos_y }}%;  --hotspot-pos-x-mobile: {{ pos_x_mobile }}%;
                 --hotspot-pos-y-mobile: {{ pos_y_mobile }}%;
               "
+              x-data="
+                {
+                  isVisible: false,
+                  posX: {{ pos_x }},
+                  posXMobile: {{ pos_x_mobile }},
+                  get isTooRight() { return this.posX > 70; },
+                  get isTooRightMobile() { return this.posXMobile > 70; }
+                }
+              "
               {{ block.shopify_attributes }}
               x-data="{ isVisible: false }"
               @mouseenter="isVisible = true"
@@ -127,6 +136,12 @@
                 id="popup-{{ block_id }}"
                 role="tooltip"
                 aria-hidden="true"
+                :class="
+                  {
+                    'popup--flip': isTooRight,
+                    'popup--flip-mobile': isTooRightMobile
+                  }
+                "
                 x-bind:aria-hidden="!isVisible"
                 x-show="isVisible"
                 x-cloak

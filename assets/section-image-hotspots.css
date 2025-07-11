@@ -105,21 +105,32 @@
 /* Popup styles */
 .image-hotspots__popup {
   position: absolute;
-  /* Position relative to the marker; adjust as needed */
   left: calc(100% + 10px);
-  top: calc(100% - 90px);
+  top: 50%;
+  transform: translateY(-50%);
   background-color: rgb(var(--color-background), 0.85);
   color: rgb(var(--color-text));
-  padding: 15px; /* Reverted padding */
+  padding: 15px;
   box-shadow: var(--popup-shadow-horizontal-offset, 0px)
     var(--popup-shadow-vertical-offset, 4px)
     var(--popup-shadow-blur-radius, 10px)
     rgba(var(--color-shadow), var(--popup-shadow-opacity, 0.1));
-  width: max-content; /* Adjust width based on content */
-  max-width: 200px; /* Max width to prevent excessive size */
-  z-index: 2; /* Ensure popup is above markers */
-  pointer-events: auto; /* Allow interaction within the popup */
+  width: max-content;
+  max-width: 250px;
+  z-index: 2;
+  pointer-events: auto;
   text-align: left;
+}
+
+.image-hotspots__popup.popup--flip {
+  left: auto;
+  right: calc(100% + 10px);
+}
+.image-hotspots__popup.popup--flip-mobile {
+  left: auto;
+  right: 0;
+  top: calc(100% + 5px);
+  bottom: auto;
 }
 
 /* Adjust popup position if it's near the top edge */
@@ -241,16 +252,16 @@
     top: var(--hotspot-pos-y-mobile);
     left: var(--hotspot-pos-x-mobile);
   }
-  .image-hotspots__content{
+  .image-hotspots__content {
     margin-top: 40px;
   }
-  .image-hotspots__title{
+  .image-hotspots__title {
     font-size: 13px;
   }
-  .hotspots__description p{
+  .hotspots__description p {
     font-size: 16px;
   }
-  .hotspots-content__inner{
+  .hotspots-content__inner {
     padding: 0 16px;
   }
 }
