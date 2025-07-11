@@ -14,8 +14,8 @@
   <div class="featured-products-section page-width">
     <div class="featured-products__header">
       <div class="featured-products__titles">
-        {%- if heading != blank and section.settings.enable_heading_with_products == false -%}
-          <h2 class="featured-products__heading">{{ heading | escape }}</h2>
+        {%- if heading != blank -%}
+          <h2 class="featured-products__heading top-level  {% if section.settings.enable_heading_with_products == true %} large-up-hide {% endif %} ">{{ heading | escape }}</h2>
         {%- endif -%}
         {%- if subheading != blank -%}
           <p class="featured-products__subheading">{{ subheading | escape }}</p>
@@ -32,7 +32,7 @@
     {%- assign grid_classes = 'grid grid--5-col-desktop grid--2-col-tablet-down' -%}
     <div class="featured-products__grid {{ grid_classes }}">
       {%- if heading != blank and section.settings.enable_heading_with_products == true -%}
-        <h2 class="featured-products__heading grid__item">{{ heading | escape }}</h2>
+        <h2 class="featured-products__heading grid__item small-hide  medium-hide">{{ heading | escape }}</h2>
       {%- endif -%}
       {%- for block in section.blocks -%}
         {%- assign product = block.settings.product -%}
