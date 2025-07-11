@@ -47,54 +47,76 @@
 .image-hotspots__marker {
   position: relative;
   display: block;
-  width: 32px; /* Increased size for easier interaction */
-  height: 32px;
-  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 52px;
+  height: 52px;
+  background: #ffffff33;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease-out, background-color 0.2s ease;
-}
-
-.image-hotspots__marker:hover,
-.image-hotspots__marker:focus {
-  transform: scale(1.1);
-  background-color: rgba(255, 255, 255, 0.9);
+  transition: background-color 0.2s ease-in;
 }
 
 .image-hotspots__marker-dot {
+  display: flex;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 8px;
-  height: 8px;
-  background-color: rgba(0, 0, 0, 0.8);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: background-color 0.2s ease;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
 }
 
-.image-hotspots__marker:hover .image-hotspots__marker-dot,
-.image-hotspots__marker:focus .image-hotspots__marker-dot {
-   background-color: rgba(0, 0, 0, 1);
+.image-hotspots__marker-dot .svg-wrapper {
+  width: 34px;
+  height: 34px;
+  background: white;
+  border-radius: 50%;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-hotspots__marker-dot .svg-wrapper svg {
+  width: 10px;
+  height: 10px;
+  transition:
+    stroke 0.3s ease,
+    transform 0.3s ease;
+}
+
+.image-hotspots__marker-dot .svg-wrapper svg path {
+  stroke: currentColor;
+}
+.image-hotspots__marker:hover {
+  background-color: black;
+}
+
+.image-hotspots__marker-dot:hover .svg-wrapper {
+  background-color: black;
+  transform: rotate(-45deg);
+}
+
+.image-hotspots__marker-dot:hover .svg-wrapper svg {
+  color: white;
 }
 
 /* Popup styles */
 .image-hotspots__popup {
   position: absolute;
   /* Position relative to the marker; adjust as needed */
-  bottom: calc(100% + 10px); /* Position above the marker */
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgb(var(--color-background));
+  left: calc(100% + 10px);
+  top: calc(100% - 90px);
+  background-color: rgb(var(--color-background), 0.85);
   color: rgb(var(--color-text));
-  border: 1px solid rgba(var(--color-foreground), 0.1);
-  border-radius: var(--popup-corner-radius, 4px);
   padding: 15px; /* Reverted padding */
-  box-shadow: var(--popup-shadow-horizontal-offset, 0px) var(--popup-shadow-vertical-offset, 4px) var(--popup-shadow-blur-radius, 10px) rgba(var(--color-shadow), var(--popup-shadow-opacity, 0.1));
+  box-shadow: var(--popup-shadow-horizontal-offset, 0px)
+    var(--popup-shadow-vertical-offset, 4px)
+    var(--popup-shadow-blur-radius, 10px)
+    rgba(var(--color-shadow), var(--popup-shadow-opacity, 0.1));
   width: max-content; /* Adjust width based on content */
-  max-width: 250px; /* Max width to prevent excessive size */
+  max-width: 200px; /* Max width to prevent excessive size */
   z-index: 2; /* Ensure popup is above markers */
   pointer-events: auto; /* Allow interaction within the popup */
   text-align: left;
@@ -118,21 +140,21 @@
 .image-hotspots__hotspot[style*="--hotspot-pos-y: 14%;"],
 .image-hotspots__hotspot[style*="--hotspot-pos-y: 15%;"] {
   .image-hotspots__popup {
-     bottom: auto;
-     top: calc(100% + 10px); /* Position below the marker */
+    bottom: auto;
+    top: calc(100% + 10px); /* Position below the marker */
   }
 }
-
 
 .image-hotspots__popup-content {
   display: flex;
   align-items: flex-start;
   gap: 10px;
+  flex-direction: column;
 }
 
 .image-hotspots__popup-image {
   flex-shrink: 0;
-  width: 50px; /* Fixed width for the image container */
+  width: 35px; /* Fixed width for the image container */
   height: auto;
   line-height: 0; /* Remove extra space */
 }
@@ -150,16 +172,16 @@
 .image-hotspots__popup-info {
   display: flex;
   flex-direction: column;
-  gap: 5px; /* Space between title, price, link */
+  gap: 10px; /* Space between title, price, link */
   flex-grow: 1;
 }
 
 .image-hotspots__popup-title {
   font-size: var(--font-body-scale);
   margin: 0;
-  font-weight: 900; /* Increased boldness */
+  font-weight: 500; /* Increased boldness */
   line-height: 1.3;
-  color: rgb(var(--color-foreground)); /* Ensure title color is foreground */
+  color: #5c5c5c; /* Ensure title color is foreground */
 }
 
 .image-hotspots__popup-price {
@@ -172,6 +194,63 @@
   text-decoration: underline;
   margin-top: 10px; /* Increased space above the link */
 }
+.image-hotspots__popup-description {
+  line-height: 1;
+  margin: 0;
+  font-size: 13px;
+}
 
 /* Hide element when using x-cloak until Alpine initializes */
-[x-cloak] { display: none !important; } 
+[x-cloak] {
+  display: none !important;
+}
+.image-hotspots__content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.hotspots-content__inner {
+  max-width: 832px;
+}
+.image-hotspots__title {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+}
+
+.hotspots__description p {
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.4;
+  letter-spacing: 0px;
+  margin-top: 16px;
+}
+
+@media only screen and (min-width: 749px) {
+  .image-hotspots-section {
+    padding: 88px 50px 40px;
+  }
+}
+@media only screen and (max-width: 749px) {
+  .image-hotspots__hotspot {
+    top: var(--hotspot-pos-y-mobile);
+    left: var(--hotspot-pos-x-mobile);
+  }
+  .image-hotspots__content{
+    margin-top: 40px;
+  }
+  .image-hotspots__title{
+    font-size: 13px;
+  }
+  .hotspots__description p{
+    font-size: 16px;
+  }
+  .hotspots-content__inner{
+    padding: 0 16px;
+  }
+}

@@ -195,25 +195,29 @@
         "product_card_BDaBT7": {
           "type": "product_card",
           "settings": {
-            "product": "3-4-sleeve-kimono-dress-coral"
+            "product": "3-4-sleeve-kimono-dress-coral",
+            "product_redirection_text": "Shop Now"
           }
         },
         "product_card_k3LqnV": {
           "type": "product_card",
           "settings": {
-            "product": "5-pocket-jean"
+            "product": "5-pocket-jean",
+            "product_redirection_text": "Shop Now"
           }
         },
         "product_card_gk8DxG": {
           "type": "product_card",
           "settings": {
-            "product": "acb-top-in-chipped-brick"
+            "product": "acb-top-in-chipped-brick",
+            "product_redirection_text": "Shop Now"
           }
         },
         "product_card_eqJUrF": {
           "type": "product_card",
           "settings": {
-            "product": "aliam-skirt-mud"
+            "product": "aliam-skirt-mud",
+            "product_redirection_text": "Shop Now"
           }
         }
       },
@@ -226,9 +230,11 @@
       "name": "Featured Products",
       "settings": {
         "heading": "top selling kits",
+        "enable_heading_with_products": true,
         "subheading": "",
         "view_all_text": "",
-        "view_all_url": ""
+        "view_all_url": "",
+        "enable_ratings": false
       }
     },
     "image_hotspots_9T6rdw": {
@@ -237,25 +243,37 @@
         "hotspot_aRRDDn": {
           "type": "hotspot",
           "settings": {
-            "product": "",
-            "position_x": 50,
-            "position_y": 50
+            "image": "shopify:\/\/shop_images\/question_10821051_1_0212845e-9b9e-48b4-9718-c5085516d232.png",
+            "heading": "Life Saving Gear",
+            "description": "Life Saving Gear Life Saving Gear Life Saving Gear",
+            "position_x": 82,
+            "position_y": 70,
+            "position_x_mobile": 59,
+            "position_y_mobile": 79
           }
         },
         "hotspot_368nMg": {
           "type": "hotspot",
           "settings": {
-            "product": "",
-            "position_x": 16,
-            "position_y": 0
+            "image": "shopify:\/\/shop_images\/worldwide_15808138_2.png",
+            "heading": "Life Saving Gear",
+            "description": "Life Saving Gear Life Saving Gear Life Saving Gear",
+            "position_x": 70,
+            "position_y": 66,
+            "position_x_mobile": 76,
+            "position_y_mobile": 76
           }
         },
         "hotspot_K4kwJg": {
           "type": "hotspot",
           "settings": {
-            "product": "",
+            "image": "shopify:\/\/shop_images\/worldwide_15808138_2_6ffd423c-be08-47d7-9504-560026b77612.png",
+            "heading": "Life Saving Gear",
+            "description": "Life Saving Gear Life Saving Gear Life Saving Gear",
             "position_x": 50,
-            "position_y": 50
+            "position_y": 50,
+            "position_x_mobile": 24,
+            "position_y_mobile": 65
           }
         }
       },
@@ -267,6 +285,9 @@
       "name": "Image with hotspots",
       "settings": {
         "image": "shopify:\/\/shop_images\/Buy-a-Kit-Get-a-Kit-Email-desktop.png",
+        "mobile_image": "shopify:\/\/shop_images\/Buy-a-Kit-Get-a-Kit-Email-mobile_1_1.png",
+        "heading": "my medic",
+        "description": "<p>We are committed to excellence in all we do and to fostering a spirit of community. At MyMedic, we ensure that everything else falls into place by prioritizing top-quality products and caring for each other.<\/p>",
         "container_width": "standard",
         "container_horizontal_alignment": "center",
         "container_vertical_alignment": "center",
