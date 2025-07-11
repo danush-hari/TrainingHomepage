@@ -1659,8 +1659,8 @@ details[open] > .share-button__fallback {
 .customer select {
   -webkit-appearance: none;
   appearance: none;
-  background-color: rgb(var(--color-background));
-  color: rgb(var(--color-foreground));
+  background-color: rgb(var(--color-foreground));
+  color: rgb(var(--color-background));
   font-family: var(--font-body-family);
   font-style: var(--font-body-style);
   font-weight: var(--font-body-weight);
@@ -1669,7 +1669,7 @@ details[open] > .share-button__fallback {
   box-sizing: border-box;
   transition: box-shadow var(--duration-short) ease;
   border-radius: var(--inputs-radius);
-  height: 4.5rem;
+  height: 4.6rem;
   min-height: calc(var(--inputs-border-width) * 2);
   min-width: calc(7rem + (var(--inputs-border-width) * 2));
   position: relative;
@@ -1827,7 +1827,7 @@ details[open] > .share-button__fallback {
   transition:
     top var(--duration-short) ease,
     font-size var(--duration-short) ease;
-  color: rgba(var(--color-foreground), 0.75);
+  color: rgba(var(--color-background), 0.75);
   letter-spacing: 0.1rem;
   line-height: 1.5;
 }
