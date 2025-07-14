@@ -50,15 +50,11 @@
             "swatch_shape": "circle"
           }
         },
-        "quantity_selector_cwaLFj": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
         "buy_buttons_JPDYXc": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
           }
         }
       },
@@ -69,7 +65,6 @@
         "rating_fCVyTk",
         "richtext_yAdGy8",
         "variant_picker_NWh8q7",
-        "quantity_selector_cwaLFj",
         "buy_buttons_JPDYXc"
       ],
       "settings": {
