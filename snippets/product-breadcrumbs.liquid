@@ -1,0 +1,11 @@
+<nav class="product_breadcrumbs flex {{ class}}" aria-label="Breadcrumb">
+    <span>Shop</span>
+    <span class="separator"> \ </span>
+    {% if collection %}
+    <a class="full-unstyled-link" href="{{ collection.url }}">{{ collection.title | link_to: collection.url }}</a>
+    <span class="separator"> \ </span>
+    {% endif %}
+    <a href="{{ product.url }}" class="product_breadcrumbs__link">
+        {{ product.title }}
+    </a>
+</nav>

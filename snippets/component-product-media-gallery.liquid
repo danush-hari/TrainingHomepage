@@ -57,9 +57,13 @@
         {% endunless %}
       {% endfor %}
     </div>
+    {% if section.settings.enable_media_pagination == true %}    
     <div class="swiper-pagination">&nbsp;</div>
-    <div class="swiper-button-prev">&nbsp;</div>
-    <div class="swiper-button-next">&nbsp;</div>
+    {% endif %}
+    {% if section.settings.enable_media_arrows == true %}      
+      <div class="swiper-button-prev">&nbsp;</div>
+      <div class="swiper-button-next">&nbsp;</div>
+    {% endif %}
     {%- if is_zoom != 'none' -%}
       <div class="product__media-icon {% if is_zoom == 'hover' %}hover-zoom-enabled{% endif %}">
         <span class="lightbox-icon">
@@ -69,5 +73,25 @@
         </span>
       </div>
     {%- endif -%}
+    
+    </div>
+    <div class="thumbnail-swiper is-loading">
+    <div class="swiper-wrapper">
+      {% assign thumb_index = 0 %}
+      {% if selected_variant.featured_image != null %}
+        <div class="swiper-slide" data-media-index="{{ thumb_index }}">
+          <img src="{{ selected_variant.featured_media.preview_image | image_url: width: 200 }}" alt="" />
+        </div>
+        {% assign thumb_index = thumb_index | plus: 1 %}
+      {% endif %}
+      {% for media in product_media %}
+        {% unless selected_variant.featured_media.id == media.id %}
+          <div class="swiper-slide" data-media-index="{{ thumb_index }}">
+            <img src="{{ media.preview_image | image_url: width: 200 }}" alt="" />
+          </div>
+          {% assign thumb_index = thumb_index | plus: 1 %}
+        {% endunless %}
+      {% endfor %}
+    </div>
   </div>
 </media-gallery>

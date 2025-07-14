@@ -1,43 +1,46 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main-product": {
       "type": "main-product",
       "blocks": {
+        "breadcrumbs_AqggAa": {
+          "type": "breadcrumbs",
+          "settings": {}
+        },
         "title_bpmXVj": {
           "type": "title",
           "settings": {
             "title_color": "#000000",
-            "title_font_size": 32,
-            "title_font_weight": "500"
+            "title_font_size": 40,
+            "title_font_weight": "700",
+            "show_price": true,
+            "sale_banner_text": "Sale"
           }
         },
-        "price_4XTzqR": {
-          "type": "price",
-          "settings": {
-            "price_color": "#000000",
-            "price_font_size": 16,
-            "price_font_weight": "500"
-          }
-        },
-        "text_CmhREB": {
+        "text_ffjrmL": {
           "type": "text",
           "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "body"
-          }
-        },
-        "sku_m7MALE": {
-          "type": "sku",
-          "settings": {
+            "text": "{{ product.metafields.custom.product_sub_title.value }}",
             "text_style": "uppercase"
           }
         },
-        "inventory_aTTemW": {
-          "type": "inventory",
+        "rating_fCVyTk": {
+          "type": "rating",
+          "settings": {}
+        },
+        "richtext_yAdGy8": {
+          "type": "richtext",
           "settings": {
-            "text_style": "body",
-            "inventory_threshold": 3,
-            "show_inventory_quantity": false
+            "rich_text": "{{ product.metafields.custom.product_offer_text | metafield_tag }}"
           }
         },
         "variant_picker_NWh8q7": {
@@ -51,32 +54,6 @@
           "type": "quantity_selector",
           "settings": {}
         },
-        "monogram_block": {
-          "type": "monogram",
-          "settings": {
-            "button_text": "Add Monogram"
-          }
-        },
-        "subscription_AbipnR": {
-          "type": "subscription",
-          "settings": {
-            "supporting_text_title": "Purchase options"
-          }
-        },
-        "share_ybFkAW": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
-        },
-        "description_RxGjaP": {
-          "type": "description",
-          "settings": {
-            "description_color": "#000000",
-            "description_font_size": 16,
-            "description_font_weight": "500"
-          }
-        },
         "buy_buttons_JPDYXc": {
           "type": "buy_buttons",
           "settings": {
@@ -86,23 +63,19 @@
         }
       },
       "block_order": [
+        "breadcrumbs_AqggAa",
         "title_bpmXVj",
-        "price_4XTzqR",
-        "text_CmhREB",
-        "sku_m7MALE",
-        "inventory_aTTemW",
+        "text_ffjrmL",
+        "rating_fCVyTk",
+        "richtext_yAdGy8",
         "variant_picker_NWh8q7",
         "quantity_selector_cwaLFj",
-        "subscription_AbipnR",
-        "share_ybFkAW",
-        "description_RxGjaP",
-        "buy_buttons_JPDYXc",
-        "monogram_block"
+        "buy_buttons_JPDYXc"
       ],
       "settings": {
         "enable_sticky_info": true,
-        "color_scheme": "",
-        "media_size": "medium",
+        "color_scheme": "scheme-2",
+        "media_size": "small",
         "constrain_to_viewport": true,
         "media_fit": "cover",
         "media_position": "left",
@@ -111,7 +84,7 @@
         "padding_top": 36,
         "padding_bottom": 100,
         "variant_label_color": "#000000",
-        "variant_label_font_size": 13,
+        "variant_label_font_size": 14,
         "variant_label_font_weight": "300"
       }
     },
