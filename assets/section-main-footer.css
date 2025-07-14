@@ -195,6 +195,7 @@
   display: block;
 }
 .footer-block__details-content .list-menu__item {
+  font-size: 16px;
   color: #8d9091;
   padding: 0;
   transition: all ease-out 0.35s;
@@ -452,6 +453,7 @@
 
 @media screen and (max-width: 989px) {
   .footer-block__details-content .list-menu__item--link {
+    font-size: 14px;
     padding-top: 1rem;
     padding-bottom: 1rem;
   }

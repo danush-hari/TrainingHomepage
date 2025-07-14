@@ -2335,6 +2335,8 @@ input[type="checkbox"] {
   justify-content: center;
   align-items: center;
   font-weight: 600;
+  letter-spacing: 0px;
+  line-height: 1;
   font-size: 18px;
 }
 
@@ -2477,7 +2479,9 @@ input[type="checkbox"] {
   font-size: 13px;
   padding: 8px 0;
   text-transform: none;
+  display: flex;
   letter-spacing: -0.02em;
+  color: #4D4D4D;
 }
 .childlink-heading--wrapper .nav-megamenu_heading {
   font-weight: 700;
@@ -2511,7 +2515,10 @@ input[type="checkbox"] {
   font-size: 16px;
   font-weight: 600;
   text-transform: none;
-  letter-spacing: 0;
+  letter-spacing: 0px;
+  line-height: 1;
+  color: #262626;
+
 }
 .mega-links--wrapper {
   grid-column: span 9;
@@ -2551,6 +2558,8 @@ input[type="checkbox"] {
   font-weight: 700;
   font-size: 16px;
   color: #000000;
+  line-height: 1;
+  letter-spacing: 0px;
 }
 
 #main-header nav ul button:hover,
@@ -4087,11 +4096,14 @@ img {
   line-height: 100%;
   font-weight: 400;
   margin: 0px;
+  letter-spacing: 0px;
+  line-height: 1;
 }
 .collection-list--description * {
   line-height: 1.4;
   font-weight: 400;
   font-size: 16px;
+  color: #4D4D4D;
   margin-bottom: 60px;
   letter-spacing: 0px;
 }
@@ -4162,14 +4174,14 @@ img {
   box-sizing: border-box;
   padding-bottom: 4rem;
 }
-.testimonial_comment{
-  font-weight: 500;
+
+.testimonial_comment * {
+  margin: 0px;
+    font-weight: 500;
   font-size: 20px;
   line-height: 1.3;
   letter-spacing: 0px;
-}
-.testimonial_comment * {
-  margin: 0px;
+  color: #4D4D4D;
 }
 .testimonial_author{
   font-weight: 700;
@@ -4178,6 +4190,7 @@ img {
   letter-spacing: 0px;
   border-bottom: 5px solid black;
   margin-top: 20px;
+  color: #231F20;
 }
 .testimonial-section .swiper-pagination{
   position: static;
@@ -4214,6 +4227,10 @@ img {
 /* Responsive styles */
 
 @media screen and (max-width: 749px) {
+  .testimonial_comment *{
+    font-size: 14px;
+    font-weight: 400;
+  }
   .collection-list--blocks {
     display: flex;
     overflow-x: auto;
