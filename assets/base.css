@@ -2481,7 +2481,7 @@ input[type="checkbox"] {
   text-transform: none;
   display: flex;
   letter-spacing: -0.02em;
-  color: #4D4D4D;
+  color: #4D4D4D !important;
 }
 .childlink-heading--wrapper .nav-megamenu_heading {
   font-weight: 700;
