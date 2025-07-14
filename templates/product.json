@@ -73,12 +73,14 @@
         "buy_buttons_JPDYXc"
       ],
       "settings": {
-        "enable_sticky_info": true,
+        "enable_sticky_info": false,
         "color_scheme": "scheme-2",
         "media_size": "small",
         "constrain_to_viewport": true,
         "media_fit": "cover",
         "media_position": "left",
+        "enable_media_arrows": false,
+        "enable_media_pagination": false,
         "image_zoom": "hover",
         "enable_video_looping": true,
         "padding_top": 36,
