@@ -73,8 +73,8 @@
         "range_discount_8t4nUG": {
           "type": "range_discount",
           "settings": {
-            "discount_text_1": "Spend $93.84 more to get the Summer Fun Starter Pack FREE!",
-            "discount_text_2": "Spend $193.84 more to get the Summer Fun Pro Pack FREE!",
+            "discount_text_1": "Spend $1000 more to get the Summer Fun Starter Pack FREE!",
+            "discount_text_2": "Spend $1500 more to get the Summer Fun Pro Pack FREE!",
             "discount_achieved_1": "You have Unlocked Summer Fun Starter Pack for FREE!",
             "discount_achieved_2": "You have Unlocked the Summer Fun Pro Pack for FREE!",
             "threshold_1": 1000,
