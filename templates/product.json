@@ -56,6 +56,30 @@
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": false
           }
+        },
+        "image_with_text_QG7TkU": {
+          "type": "image_with_text",
+          "settings": {
+            "image_1": "shopify://shop_images/cf6c068cd99bb4f198328875e5164c1237ba08fd.png",
+            "heading_1": "<p>Lifetime Guarantee</p>",
+            "image_2": "shopify://shop_images/21487bb899b2eb7928ee900e7cb57ce842172c53.png",
+            "heading_2": "<p>HSA/FSA Approved</p>",
+            "image_3": "shopify://shop_images/b31b1f1329b21101a1d0f6a2932d179719579e0e.png",
+            "heading_3": "<p>HSA/FSA Approved</p>",
+            "image_4": "shopify://shop_images/image_663.png",
+            "heading_4": "<p>HSA/FSA Approved</p>"
+          }
+        },
+        "range_discount_8t4nUG": {
+          "type": "range_discount",
+          "settings": {
+            "discount_text_1": "Spend $93.84 more to get the Summer Fun Starter Pack FREE!",
+            "discount_text_2": "Spend $193.84 more to get the Summer Fun Pro Pack FREE!",
+            "discount_achieved_1": "You have Unlocked Summer Fun Starter Pack for FREE!",
+            "discount_achieved_2": "You have Unlocked the Summer Fun Pro Pack for FREE!",
+            "threshold_1": 1000,
+            "threshold_2": 1500
+          }
         }
       },
       "block_order": [
@@ -65,7 +89,9 @@
         "rating_fCVyTk",
         "richtext_yAdGy8",
         "variant_picker_NWh8q7",
-        "buy_buttons_JPDYXc"
+        "buy_buttons_JPDYXc",
+        "image_with_text_QG7TkU",
+        "range_discount_8t4nUG"
       ],
       "settings": {
         "enable_sticky_info": false,

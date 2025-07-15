@@ -57,8 +57,8 @@ if (!customElements.get("product-media-modal")) {
           },
         });
 
-        const thumbSwiper = new Swiper(thumbSwiperEl, {
-          slidesPerView: 5.3,
+        new Swiper(thumbSwiperEl, {
+          slidesPerView: 5.5,
           spaceBetween: 5,
           watchSlidesProgress: true,
           on: {

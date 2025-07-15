@@ -368,6 +368,8 @@ class tt extends HTMLElement {
 				n.setAttribute(Y, ""), x(t, {
 					lastCallback: () => {
 						n.removeAttribute(Y)
+						const bar = document.querySelector("range-discount-bar");
+            			bar?.updateProgress();
 					},
 					info: {
 						initiator: n
@@ -644,6 +646,8 @@ function Ct() {
 					e.preventDefault()
 				})), t.addEventListener("focusout", (e => {
 					e.relatedTarget && t.contains(e.relatedTarget) || void 0 !== this._timer && this._runRequest()
+					const bar = document.querySelector("range-discount-bar");
+          			bar?.updateProgress();
 				}))
 			}))) : console.error(`Liquid Ajax Cart: "${jt}" element's input must have the "${yt}" attribute`, this._$input, this)) : console.error(`Liquid Ajax Cart: "${jt}" element must have one "input" element as a child, ${t.length} found`, this)
 		}
