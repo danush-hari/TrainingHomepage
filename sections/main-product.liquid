@@ -68,6 +68,24 @@
           is_zoom: section.settings.image_zoom,
           section: section
         %}
+        {%- for block in section.blocks -%}          
+          {% if block.settings.video %}
+            {%- case 'block.type ' -%}
+            {%- when 'text' -%}
+              {% if block.settings.video %}
+                {{ video_tag block.settings.video, autoplay: false, controls: true, muted: false, loop: false }}
+              {% endif %}
+                {% if block.settings.video %}
+                  <video controls width="100%">
+                    {% for source in block.settings.video.sources %}
+                      <source src="{{ source.url }}" type="{{ source.mime_type }}">
+                    {% endfor %}
+                    Your browser does not support the video tag.
+                  </video>
+                {% endif %}
+              {%- endcase -%}
+        {%- endfor -%}
+
       </div>
       <div class="product__info-wrapper flex__item {% if section.settings.enable_sticky_info %}product__info-sticky {% endif %}">
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
@@ -383,7 +401,7 @@
 
             {%- when 'collapsible_tab' -%}
              <div class="product__accordion accordion" {{ block.shopify_attributes }}>
-              <div x-data="{ open: false }" class="accordion-wrapper">
+              <div x-data="{ open: false }" class="accordion-wrapper" :class="{ 'accordion-wrapper--open': open, 'accordion-wrapper--closed': !open }">
                 <div @click="open = !open" class="accordion-header">
                   <div class="summary__title">
                     {%- if block.settings.icon != 'none' -%}
@@ -649,6 +667,18 @@
       "type": "breadcrumbs",
       "name": "breadcrumbs",
       "limit": 1
+    },
+    {
+      "type": "product_video",
+      "name": "Product Video",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        }
+      ]
     },
     {
       "type": "text",
@@ -1825,3 +1855,4 @@
   ]
 }
 {% endschema %}
+

@@ -440,7 +440,7 @@ shopify-buy-it-now-button .shopify-payment-button__button {
 .product__info-wrapper .product__accordion {
   margin-top: 25px;
   margin-bottom: 0;
-  border-bottom: 4px solid #A7A9AC
+
 }
 .product__accordion .icon{
   font-size: 28px;
@@ -457,7 +457,19 @@ shopify-buy-it-now-button .shopify-payment-button__button {
   cursor: pointer;
   list-style: none;
 }
-
+.accordion-header{
+  display: flex;
+  border-bottom: 4px solid #A7A9AC
+}
+.accordion-wrapper.accordion-wrapper--open{
+  background: #FFFFFF;
+}
+.accordion-wrapper.accordion-wrapper--open .accordion__title,.accordion-wrapper.accordion-wrapper--open .accordion-header .icon{
+  color: #E0222D;
+}
+.accordion-wrapper.accordion-wrapper--open .accordion-header{
+  border-bottom: 0px;
+}
 .product__accordion .svg-wrapper {
   display: inline-flex;
   justify-content: center;
@@ -485,7 +497,7 @@ shopify-buy-it-now-button .shopify-payment-button__button {
   margin: 0;
   font-size: 20px;
   font-weight: 700;
-  color: #E0222D;
+  color: #4A4B4D;
 }
 
 .product__accordion svg.icon.icon-caret {
@@ -503,8 +515,8 @@ shopify-buy-it-now-button .shopify-payment-button__button {
   margin-bottom: 15px;
   word-break: break-word;
   overflow-x: auto;
-  padding: 0 10px;
-  line-height: calc(1 + 0.6 / 1);
+  padding: 0 0 19px 41px;
+  line-height: 1;
 }
 
 .accordion__content > *:first-child {
